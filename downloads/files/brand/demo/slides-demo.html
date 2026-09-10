@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Блог с нуля с ИИ — демо слайдов</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700;800&family=DM+Sans:ital@1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg: #FAF7F3; --text: #2A211C; --muted: #5E534C; --muted-2: #7A6F67; --muted-3: #9A908A; --faint: #BFB5AD;
+  --accent: #7B5A43; --accent-dark: #D9BFA4;
+  --block: #F1ECE6; --card: #F5F1EC; --card-border: #E4DCD3; --tip: #ECE5DD; --line: #E9E3DC; --nav-line: #EFE9E2;
+  --split: 60%;
+}
+
+@page {
+  size: 1280px 720px;
+  margin: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 17px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+.slide {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  page-break-after: always;
+  position: relative;
+  background: var(--bg);
+}
+
+.divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--split);
+  width: 1px;
+  background: var(--line);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 48px;
+  border-bottom: 1px solid var(--nav-line);
+  background: var(--bg);
+  z-index: 10;
+  flex-shrink: 0;
+  width: var(--split);
+}
+.nav__logo { text-decoration: none; display: flex; align-items: center; }
+.nav__logo img { height: 30px; width: auto; }
+.nav__mono {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-style: italic; font-size: 22px; line-height: 30px;
+  color: var(--accent);
+}
+.nav__logo-name {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px; font-weight: 400; font-style: italic;
+  color: var(--muted-3); letter-spacing: 0.5px;
+  margin-right: 8px;
+}
+
+.slide__body {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  width: var(--split);
+  padding: 0 48px;
+}
+
+.slide__inner {
+  width: 100%;
+  max-width: 580px;
+}
+
+/* ===== БАЗОВЫЕ ЭЛЕМЕНТЫ ===== */
+
+.hero { padding: 0; }
+.badge {
+  display: inline-block; font-size: 11px; font-weight: 600;
+  color: var(--accent); border: 1px solid var(--accent);
+  padding: 5px 16px; margin-bottom: 20px;
+  letter-spacing: 2px; text-transform: uppercase;
+}
+.hero h1 {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 36px; font-weight: 700; line-height: 1.25; margin-bottom: 16px;
+}
+.hero h1 em { font-style: italic; color: var(--accent); }
+.hero__desc { font-size: 17px; color: var(--muted-2); line-height: 1.7; }
+.hero__meta { font-size: 13px; color: var(--muted-3); margin-top: 16px; letter-spacing: 1px; }
+
+.section-heading {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 28px; font-weight: 700; line-height: 1.3;
+  padding: 0 0 20px;
+}
+.section-heading em { font-style: italic; color: var(--accent); }
+
+.highlight { background: var(--block); padding: 18px 22px; margin: 20px 0; font-size: 15px; line-height: 1.75; color: var(--muted); }
+.highlight strong { color: var(--text); }
+
+.sub-heading {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 20px; font-weight: 700; padding: 24px 0 10px;
+}
+
+.text { font-size: 16px; color: var(--muted); line-height: 1.75; margin-bottom: 14px; }
+
+.guide-list { list-style: none; margin: 12px 0 20px; }
+.guide-list li {
+  font-size: 15px; line-height: 1.7; color: var(--muted);
+  padding: 6px 0 6px 18px; position: relative;
+  border-bottom: 1px solid var(--nav-line);
+}
+.guide-list li:last-child { border-bottom: none; }
+.guide-list li::before {
+  content: ''; position: absolute; left: 0; top: 14px;
+  width: 5px; height: 5px; border-radius: 50%; background: var(--accent);
+}
+.guide-list li strong { color: var(--text); }
+
+.scenario-card { border: 1px solid var(--card-border); padding: 24px; margin: 18px 0; background: var(--card); }
+.scenario-card__num {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-style: italic; font-size: 13px;
+  color: var(--accent); letter-spacing: 1px; margin-bottom: 6px;
+}
+.scenario-card__title {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 18px; font-weight: 700; line-height: 1.4; margin-bottom: 16px;
+}
+.scenario-card__point { margin-bottom: 12px; }
+.scenario-card__point-label { font-weight: 600; font-size: 15px; color: var(--text); }
+.scenario-card__point-text { font-size: 14px; color: var(--muted-2); line-height: 1.7; }
+.scenario-card__tip {
+  background: var(--tip); padding: 12px 16px; margin-top: 14px;
+  font-size: 13px; color: var(--muted); line-height: 1.65;
+}
+.scenario-card__tip strong { color: var(--accent); }
+
+.footer-note {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 17px; font-style: italic; color: var(--muted);
+  padding: 28px 0 0;
+}
+.footer-note em { color: var(--accent); }
+
+/* ===== СХЕМКА 1: ЦИТАТА-АКЦЕНТ ===== */
+
+.quote-slide__label {
+  font-size: 11px; font-weight: 600; color: var(--muted-3);
+  letter-spacing: 2px; text-transform: uppercase; margin-bottom: 28px;
+}
+.quote-slide__mark {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 80px; color: var(--accent); line-height: 0.5;
+  margin-bottom: 16px; opacity: 0.3;
+}
+.quote-slide__text {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 24px; font-weight: 400; font-style: italic;
+  line-height: 1.5; color: var(--text); max-width: 480px; margin-bottom: 28px;
+}
+.quote-slide__text em { color: var(--accent); }
+.quote-slide__divider { width: 40px; height: 2px; background: var(--accent); margin-bottom: 20px; }
+.quote-slide__source { font-size: 14px; color: var(--muted-3); line-height: 1.6; }
+
+/* ===== СХЕМКА 2: ШАГИ С ЛИНИЕЙ ===== */
+
+.steps__heading {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 28px; font-weight: 700; line-height: 1.3; margin-bottom: 32px;
+}
+.steps__heading em { font-style: italic; color: var(--accent); }
+.steps__list { position: relative; padding-left: 32px; }
+.steps__list::before {
+  content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px;
+  width: 1px; background: var(--line);
+}
+.steps__item { position: relative; padding-bottom: 24px; }
+.steps__item:last-child { padding-bottom: 0; }
+.steps__dot {
+  position: absolute; left: -32px; top: 4px;
+  width: 15px; height: 15px; border: 2px solid var(--accent);
+  background: var(--bg); border-radius: 50%;
+}
+.steps__item--active .steps__dot { background: var(--accent); }
+.steps__item-title { font-weight: 600; font-size: 16px; color: var(--text); margin-bottom: 4px; }
+.steps__item-text { font-size: 14px; color: var(--muted-2); line-height: 1.6; }
+
+/* ===== СХЕМКА 3: НУМЕРОВАННЫЙ СПИСОК ===== */
+
+.numlist__heading {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 28px; font-weight: 700; line-height: 1.3; margin-bottom: 32px;
+}
+.numlist__heading em { font-style: italic; color: var(--accent); }
+.numlist__item {
+  display: flex; gap: 24px; align-items: baseline;
+  padding: 16px 0; border-bottom: 1px solid var(--nav-line);
+}
+.numlist__item:last-child { border-bottom: none; }
+.numlist__num {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-style: italic; font-weight: 400;
+  font-size: 36px; color: var(--accent); opacity: 0.3;
+  min-width: 48px; text-align: right; line-height: 1; flex-shrink: 0;
+}
+.numlist__text { font-size: 15px; color: var(--text); line-height: 1.6; }
+.numlist__text strong { font-weight: 600; }
+.numlist__text span { color: var(--muted-2); }
+
+/* ===== СХЕМКА 4: АКЦЕНТНАЯ ПОЛОСА СЛЕВА ===== */
+
+.accent-bar__label {
+  font-size: 11px; font-weight: 600; color: var(--muted-3);
+  letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px;
+}
+.accent-bar__block { border-left: 3px solid var(--accent); padding-left: 28px; }
+.accent-bar__title {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 26px; font-weight: 700; line-height: 1.35; margin-bottom: 16px;
+}
+.accent-bar__title em { font-style: italic; color: var(--accent); }
+.accent-bar__text { font-size: 15px; color: var(--muted); line-height: 1.75; margin-bottom: 20px; }
+.accent-bar__footer {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 15px; font-style: italic; color: var(--muted-3);
+  padding-top: 16px; border-top: 1px solid var(--nav-line);
+}
+
+/* ===== СХЕМКА 5: ЧЕК-ЛИСТ ===== */
+
+.checklist__heading {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 28px; font-weight: 700; line-height: 1.3; margin-bottom: 28px;
+}
+.checklist__heading em { font-style: italic; color: var(--accent); }
+.checklist__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.checklist__col-label {
+  font-size: 11px; font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase; padding-bottom: 14px; margin-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+.checklist__col-label--do { color: var(--accent); }
+.checklist__col-label--dont { color: var(--muted-3); }
+.checklist__col:first-child { padding-right: 20px; border-right: 1px solid var(--nav-line); }
+.checklist__col:last-child { padding-left: 20px; }
+.checklist__item {
+  display: flex; gap: 10px; padding: 8px 0;
+  font-size: 14px; color: var(--muted); line-height: 1.6; align-items: baseline;
+}
+.checklist__mark { flex-shrink: 0; font-size: 14px; font-weight: 700; width: 16px; }
+.checklist__mark--do { color: var(--accent); }
+.checklist__mark--dont { color: var(--faint); }
+
+/* ===== СХЕМКА 6: ТРИ МЕТРИКИ ===== */
+
+.metrics__heading {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 28px; font-weight: 700; line-height: 1.3; margin-bottom: 32px;
+}
+.metrics__heading em { font-style: italic; color: var(--accent); }
+.metrics__row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; }
+.metrics__item {
+  text-align: center; padding: 24px 12px;
+  border-right: 1px solid var(--nav-line);
+}
+.metrics__item:last-child { border-right: none; }
+.metrics__number {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-style: italic; font-weight: 400;
+  font-size: 48px; color: var(--accent); opacity: 0.3;
+  line-height: 1; margin-bottom: 8px;
+}
+.metrics__label {
+  font-size: 12px; color: var(--muted-3); text-transform: uppercase;
+  letter-spacing: 1px; margin-bottom: 8px;
+}
+.metrics__desc { font-size: 13px; color: var(--muted-2); line-height: 1.5; }
+
+/* ===== СХЕМКА 7: ВОПРОС-ОТВЕТ ===== */
+
+.qa__heading {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 28px; font-weight: 700; line-height: 1.3; margin-bottom: 28px;
+}
+.qa__heading em { font-style: italic; color: var(--accent); }
+.qa__item { margin-bottom: 24px; }
+.qa__question {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 17px; font-style: italic; color: var(--accent);
+  margin-bottom: 8px; padding-left: 32px; position: relative;
+}
+.qa__question::before {
+  content: '?'; position: absolute; left: 0; top: -4px;
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-style: italic; font-weight: 400;
+  font-size: 28px; color: var(--accent); opacity: 0.3;
+}
+.qa__answer {
+  font-size: 15px; color: var(--muted); line-height: 1.7;
+  padding-left: 32px; border-left: 1px solid var(--line);
+}
+
+/* ===== СХЕМКА 8: ФОРМУЛА ===== */
+
+.formula__heading {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 28px; font-weight: 700; line-height: 1.3; margin-bottom: 28px;
+}
+.formula__heading em { font-style: italic; color: var(--accent); }
+.formula__row {
+  display: flex; align-items: center; gap: 16px; margin-bottom: 32px;
+}
+.formula__step {
+  flex: 1; background: var(--block); padding: 18px 16px; text-align: center;
+}
+.formula__step-title {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 15px; font-weight: 700; margin-bottom: 4px;
+}
+.formula__step-text { font-size: 12px; color: var(--muted-2); line-height: 1.5; }
+.formula__arrow { color: var(--accent); font-size: 18px; flex-shrink: 0; opacity: 0.5; }
+.formula__result {
+  border: 1px solid var(--accent); padding: 18px 16px; text-align: center; flex: 1;
+}
+.formula__result .formula__step-title { color: var(--accent); }
+.formula__note { font-size: 14px; color: var(--muted-3); font-style: italic; margin-top: 8px; }
+
+/* ===== АДАПТИВ ===== */
+
+@media print {
+  html, body { width: 1280px; }
+  .slide {
+    width: 1280px; height: 720px;
+    page-break-after: always; page-break-inside: avoid;
+  }
+  .slide:last-child { page-break-after: auto; }
+  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* ВАЖНО: только screen — иначе правило течёт в print/PDF и ломает 60/40 split (навбар на всю ширину, исчезает разделитель и правая зона под видео) */
+@media screen and (max-width: 768px) {
+  .nav { padding: 16px 20px; width: 100%; }
+  .hero h1 { font-size: 26px; }
+  .section-heading { font-size: 22px; }
+  .slide__body { width: 100%; padding: 0 20px; }
+  .divider { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Слайд 1: титульный -->
+<div class="slide">
+<div class="divider"></div>
+<nav class="nav">
+  <a class="nav__logo" href="#"><span class="nav__mono">O</span></a>
+  <span class="nav__logo-name">olesya</span>
+</nav>
+<div class="slide__body">
+  <div class="slide__inner">
+    <div class="hero">
+      <div class="badge">УРОК</div>
+      <h1>Блог с нуля за 15 минут в день — <em>с ИИ</em></h1>
+      <p class="hero__desc">Как начать, если нет времени, идей и «правильной» ниши. Система, а не подвиг.</p>
+      <p class="hero__meta">ПРОЯВЛЕННОСТЬ &middot; CLAUDE &middot; ПЕРВЫЙ ПОСТ</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Слайд 2: формула -->
+<div class="slide">
+<div class="divider"></div>
+<nav class="nav">
+  <a class="nav__logo" href="#"><span class="nav__mono">O</span></a>
+  <span class="nav__logo-name">olesya</span>
+</nav>
+<div class="slide__body">
+  <div class="slide__inner">
+    <div class="formula__heading">Формула <em>блога</em></div>
+    <div class="formula__row">
+      <div class="formula__step">
+        <div class="formula__step-title">Разрешение</div>
+        <div class="formula__step-text">Состояние</div>
+      </div>
+      <div class="formula__arrow">+</div>
+      <div class="formula__step">
+        <div class="formula__step-title">Инструмент</div>
+        <div class="formula__step-text">Блог с ИИ, 15 минут</div>
+      </div>
+      <div class="formula__arrow">=</div>
+      <div class="formula__result">
+        <div class="formula__step-title">Результат</div>
+        <div class="formula__step-text">Деньги и свобода</div>
+      </div>
+    </div>
+    <p class="formula__note">Без первого слагаемого второе не работает.</p>
+  </div>
+</div>
+</div>
+
+<!-- Слайд 3: цитата -->
+<div class="slide">
+<div class="divider"></div>
+<nav class="nav">
+  <a class="nav__logo" href="#"><span class="nav__mono">O</span></a>
+  <span class="nav__logo-name">olesya</span>
+</nav>
+<div class="slide__body">
+  <div class="slide__inner">
+    <div class="quote-slide__label">КЛЮЧЕВАЯ МЫСЛЬ</div>
+    <div class="quote-slide__mark">&ldquo;</div>
+    <div class="quote-slide__text">Первый пост не обязан быть шедевром. <em>Он обязан существовать.</em></div>
+    <div class="quote-slide__divider"></div>
+    <p class="quote-slide__source">Про то, почему «ещё не готова» — это не причина, а привычка.</p>
+  </div>
+</div>
+</div>
+
+</body>
+</html>
