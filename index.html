@@ -144,13 +144,13 @@ td strong { color: #1a1a1a; }
 </div></div>
 <div class="step"><div class="step__num">2</div><div class="step__body">
   <div class="step__title">Заведи GitHub и пришли ник Майе</div>
-  <div class="step__text">Аккаунт на github.com. Ник присылаешь Майе, она приглашает тебя в закрытый репозиторий <code>olesya-setup</code>. Принимаешь приглашение по письму. Затем говоришь Claude:</div>
+  <div class="step__text">Аккаунт на github.com: туда Claude будет складывать архив постов твоего канала и публиковать твои гайды. Для установки пакета никакие доступы не нужны. После регистрации говоришь Claude:</div>
   <div class="prompt-box" style="margin:12px 0 0"><div class="prompt-box__text">Установи GitHub CLI (gh), если его нет, и залогинь меня в GitHub через браузер.</div></div>
 </div></div>
 <div class="step"><div class="step__num">3</div><div class="step__body">
   <div class="step__title">Одна фраза установки</div>
   <div class="step__text">Открываешь Claude и отправляешь слово в слово:</div>
-  <div class="prompt-box" style="margin:12px 0 0"><div class="prompt-box__text">Склонируй репозиторий maiyamaiya19999-bit/olesya-setup в мою домашнюю папку, открой в нём файл INSTALL-FOR-CLAUDE.md и выполни установку строго по нему. Потом отчитайся по каждому пункту: что установлено и что проверено.</div></div>
+  <div class="prompt-box" style="margin:12px 0 0"><div class="prompt-box__text">Скачай архив https://maiyamaiya19999-bit.github.io/olesya-guide/downloads/olesya-full-package.zip и распакуй его в папку ~/olesya-setup. Открой в ней файл INSTALL-FOR-CLAUDE.md и выполни установку строго по нему. Потом отчитайся по каждому пункту: что установлено и что проверено.</div></div>
   <div class="step__text" style="margin-top:12px">Claude сам скопирует скиллы в <code>~/.claude/commands/</code>, твой профиль и палитру в <code>~/.claude/brand/</code>, папку Telegram-ассистента в <code>~/tg-assistant/</code>, допишет твои правила в память и покажет таблицу проверок.</div>
 </div></div>
 <div class="step"><div class="step__num">4</div><div class="step__body">
@@ -158,7 +158,7 @@ td strong { color: #1a1a1a; }
   <div class="step__text">Напиши <code>/reels-expert</code> и одну мысль: «разрешение — это не аффирмация, это поведение». Если сценарий звучит как ты, а не как нейросеть, установка прошла.</div>
 </div></div>
 
-<div class="highlight"><strong>Что делать, если Claude пишет «нет доступа к репозиторию».</strong> Ты ещё не приняла приглашение или залогинена под другим GitHub-аккаунтом. Открой письмо от GitHub, нажми Accept, затем повтори фразу из шага 3.</div>
+<div class="highlight"><strong>Если архив не скачался.</strong> Проверь интернет и повтори фразу из шага 3 ещё раз. Не помогло — напиши Майе, она проверит ссылку.</div>
 
 <div class="btn-row">
   <a class="btn btn--primary" href="downloads/files/README.md" download>README: 8 шагов</a>
@@ -580,7 +580,7 @@ td strong { color: #1a1a1a; }
 </table></div>
 
 <h3 class="sub-heading">Как обновить пакет</h3>
-<div class="prompt-box"><div class="prompt-box__text">Обнови мой пакет: git -C ~/olesya-setup pull, затем выполни раздел «Обновление» из INSTALL-FOR-CLAUDE.md. Мой PROFILE.md не перезаписывай без вопроса.</div></div>
+<div class="prompt-box"><div class="prompt-box__text">Обнови мой пакет: скачай свежий архив https://maiyamaiya19999-bit.github.io/olesya-guide/downloads/olesya-full-package.zip, распакуй в ~/olesya-setup и выполни раздел «Обновление» из INSTALL-FOR-CLAUDE.md. Мой PROFILE.md не перезаписывай без вопроса.</div></div>
 
 <p class="footer-note">Ты не сотрудник своего блога. <em>Ты его владелец.</em></p>
 
