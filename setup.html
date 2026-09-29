@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Установка · Рабочее место Олеси</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700;800&family=DM+Sans:ital@1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root { --accent: #710C04; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: #fff; color: #1a1a1a; font-size: 17px; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+.nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 48px; border-bottom: 1px solid #f0f0f0; position: sticky; top: 0; background: #fff; z-index: 100; }
+.nav__logo { text-decoration: none; display: flex; align-items: center; }
+.nav__logo img { height: 30px; width: auto; }
+.nav__logo-name { font-family: 'DM Sans', sans-serif; font-size: 14px; font-style: italic; color: #888; letter-spacing: .5px; }
+.container { max-width: 740px; margin: 0 auto; padding: 0 24px; }
+.hero { padding: 60px 0 40px; }
+.badge { display: inline-block; font-size: 11px; font-weight: 600; color: var(--accent); border: 1px solid var(--accent); padding: 5px 16px; margin-bottom: 20px; letter-spacing: 2px; text-transform: uppercase; }
+.hero h1 { font-family: 'Libre Baskerville', Georgia, serif; font-size: 38px; font-weight: 700; line-height: 1.25; margin-bottom: 16px; }
+.hero h1 em { font-style: italic; color: var(--accent); }
+.hero__desc { font-size: 18px; color: #666; line-height: 1.7; }
+.hero__meta { font-size: 14px; color: #999; margin-top: 16px; letter-spacing: 1px; }
+.intro-bold { font-size: 18px; font-weight: 700; line-height: 1.65; padding: 32px 0 12px; }
+.intro-text { font-size: 17px; color: #444; padding-bottom: 32px; }
+.section-heading { font-family: 'Libre Baskerville', Georgia, serif; font-size: 30px; font-weight: 700; line-height: 1.3; padding: 56px 0 20px; border-top: 1px solid #e8e8e8; }
+.section-heading span { color: var(--accent); margin-right: 8px; }
+.section-heading em { font-style: italic; color: var(--accent); }
+.section-lead { font-size: 17px; color: #444; margin-bottom: 20px; }
+.highlight { background: #f5f5f5; padding: 20px 24px; margin: 24px 0; font-size: 16px; line-height: 1.75; color: #444; }
+.highlight strong { color: #1a1a1a; }
+.sub-heading { font-family: 'Libre Baskerville', Georgia, serif; font-size: 22px; font-weight: 700; padding: 32px 0 14px; }
+.text { font-size: 17px; color: #444; margin-bottom: 16px; }
+.guide-list { list-style: none; margin: 12px 0 24px; }
+.guide-list li { font-size: 16px; line-height: 1.75; color: #444; padding: 8px 0 8px 20px; position: relative; border-bottom: 1px solid #f0f0f0; }
+.guide-list li:last-child { border-bottom: none; }
+.guide-list li::before { content: ''; position: absolute; left: 0; top: 16px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+.guide-list li strong { color: #1a1a1a; }
+.prompt-box { background: #f5f5f5; padding: 28px 32px; margin: 24px 0; }
+.prompt-box__title { font-family: 'Libre Baskerville', Georgia, serif; font-size: 18px; font-weight: 700; color: var(--accent); margin-bottom: 4px; }
+.prompt-box__subtitle { font-size: 13px; color: #888; margin-bottom: 14px; }
+.prompt-box__text { font-size: 15px; line-height: 1.8; color: #444; white-space: pre-wrap; font-family: 'Inter', sans-serif; }
+.headline-list { list-style: none; margin: 12px 0 28px; }
+.headline-list li { display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid #f0f0f0; align-items: baseline; }
+.headline-list li:first-child { border-top: 1px solid #f0f0f0; }
+.headline-num { font-family: 'Libre Baskerville', Georgia, serif; font-style: italic; font-size: 15px; color: var(--accent); min-width: 28px; flex-shrink: 0; }
+.headline-text { font-size: 16px; line-height: 1.6; color: #1a1a1a; font-weight: 500; }
+.headline-text small { display: block; font-weight: 400; color: #666; font-size: 15px; margin-top: 2px; }
+.scenario-card { border: 1px solid #e8e8e8; padding: 28px 32px; margin: 24px 0; background: #f9f9f9; }
+.scenario-card__num { font-family: 'Libre Baskerville', Georgia, serif; font-style: italic; font-size: 14px; color: var(--accent); letter-spacing: 1px; margin-bottom: 8px; }
+.scenario-card__title { font-family: 'Libre Baskerville', Georgia, serif; font-size: 20px; font-weight: 700; line-height: 1.4; margin-bottom: 16px; }
+.scenario-card__point { margin-bottom: 12px; font-size: 15.5px; color: #555; line-height: 1.7; }
+.scenario-card__point strong { color: #1a1a1a; font-weight: 600; }
+.scenario-card__tip { background: #f0f0f0; padding: 14px 18px; margin-top: 16px; font-size: 14px; color: #555; line-height: 1.65; }
+.scenario-card__tip strong { color: var(--accent); }
+.btn-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0 8px; }
+.btn { display: inline-block; text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 12px 20px; border: 1px solid var(--accent); color: var(--accent); background: #fff; transition: .15s; }
+.btn:hover { background: var(--accent); color: #fff; }
+.btn--primary { background: var(--accent); color: #fff; }
+.btn--primary:hover { background: #4d0803; }
+.btn--ghost { border-color: #ccc; color: #555; }
+.btn--ghost:hover { background: #f5f5f5; color: #1a1a1a; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0 28px; font-size: 15px; }
+th, td { text-align: left; vertical-align: top; padding: 12px 12px; border-bottom: 1px solid #eee; line-height: 1.55; }
+th { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #888; font-weight: 600; border-bottom: 1px solid #e0e0e0; }
+td strong { color: #1a1a1a; }
+.table-wrap { overflow-x: auto; }
+.toc { background: #f9f9f9; border: 1px solid #e8e8e8; padding: 28px 32px; margin: 8px 0 24px; }
+.toc__title { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #888; font-weight: 600; margin-bottom: 14px; }
+.toc ol { list-style: none; counter-reset: toc; }
+.toc li { counter-increment: toc; padding: 7px 0; border-bottom: 1px solid #efefef; font-size: 15.5px; }
+.toc li:last-child { border-bottom: none; }
+.toc li::before { content: counter(toc, decimal-leading-zero) '.'; font-family: 'Libre Baskerville', Georgia, serif; font-style: italic; color: var(--accent); margin-right: 12px; }
+.toc a { color: #1a1a1a; text-decoration: none; font-weight: 500; }
+.toc a:hover { color: var(--accent); }
+.toc small { color: #888; margin-left: 6px; }
+.step { display: flex; gap: 20px; padding: 18px 0; border-bottom: 1px solid #f0f0f0; }
+.step__num { font-family: 'Libre Baskerville', Georgia, serif; font-style: italic; font-size: 28px; color: var(--accent); opacity: .35; min-width: 42px; line-height: 1.1; }
+.step__body { flex: 1; }
+.step__title { font-weight: 600; font-size: 16.5px; color: #1a1a1a; margin-bottom: 4px; }
+.step__text { font-size: 15.5px; color: #555; line-height: 1.7; }
+.step__text code, .text code, li code, td code, .scenario-card__point code { font-family: ui-monospace, Menlo, monospace; font-size: 14px; background: #f0f0f0; padding: 1px 6px; }
+.check { list-style: none; margin: 12px 0 24px; }
+.check li { position: relative; padding: 8px 0 8px 32px; font-size: 16px; color: #444; border-bottom: 1px solid #f3f3f3; }
+.check li::before { content: ''; position: absolute; left: 0; top: 13px; width: 16px; height: 16px; border: 1.5px solid var(--accent); }
+.result-box { border-left: 3px solid var(--accent); padding: 4px 0 4px 20px; margin: 22px 0; font-size: 16px; color: #444; }
+.result-box strong { color: var(--accent); font-weight: 600; letter-spacing: .5px; font-size: 12px; text-transform: uppercase; display: block; margin-bottom: 4px; }
+.footer { text-align: center; padding: 64px 24px; border-top: 1px solid #e8e8e8; margin-top: 64px; color: #999; font-size: 14px; }
+.footer-note { font-family: 'Libre Baskerville', Georgia, serif; font-size: 19px; font-style: italic; color: #444; text-align: center; padding: 56px 24px 0; }
+.footer-note em { color: var(--accent); }
+@media screen and (max-width: 768px) { .nav { padding: 16px 20px; } .hero h1 { font-size: 28px; } .section-heading { font-size: 24px; } .scenario-card, .prompt-box, .toc { padding: 20px; } .step { gap: 12px; } }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav__logo" href="#"><img src="logo-ms.png" alt="MS"></a>
+  <span class="nav__logo-name">maysoulme</span>
+</nav>
+
+<div class="container">
+
+<section class="hero">
+  <div class="badge">Личная работа · VIP</div>
+  <h1>Рабочее место Олеси: <em>от оффера до запуска</em> с ИИ-ассистентами</h1>
+  <p class="hero__desc">Пошаговый гайд, по которому мы идём вместе. Каждый этап: что делаем, зачем, что сказать Claude и что скачать одной кнопкой. Все ассистенты уже настроены под тебя: твой голос, твоя история, твоя ниша, твоя палитра.</p>
+  <p class="hero__meta">10 ЭТАПОВ · 16 СКИЛЛОВ · 4 НЕДЕЛИ</p>
+</section>
+
+<p class="intro-bold">Порядок важен. Сначала продукт и упаковка, потом контент-машина, потом воронка и запуск.</p>
+<p class="intro-text">Это не курс, а рабочий маршрут. Ты открываешь этап, делаешь то, что там написано, нажимаешь кнопки «скачать» и говоришь Claude готовые фразы. Всё, что мы обсуждаем на созвонах, фиксируется в файлах из этого гайда, поэтому ничего не теряется.</p>
+
+<div class="toc">
+  <div class="toc__title">Маршрут</div>
+  <ol>
+    <li><a href="#s1">Установка: Claude, GitHub и одна фраза, которая ставит всё</a></li>
+    <li><a href="#s2">Твой профиль: фундамент для всех ассистентов</a></li>
+    <li><a href="#s3">Продукт и оффер: о чём блог и что продаём</a><small>обсуждаем на созвоне</small></li>
+    <li><a href="#s4">Трипваер: маленький продукт, который продаётся сам</a></li>
+    <li><a href="#s5">Упаковка профиля: шапка, актуальные, закрепы, идеи на раскрытие личности</a></li>
+    <li><a href="#s6">Reels: экспертные, адаптированные и с личной историей</a></li>
+    <li><a href="#s7">Парсер контента: что залетает у конкурентов</a></li>
+    <li><a href="#s8">Telegram-канал и твоя папка-ассистент</a></li>
+    <li><a href="#s9">Гайды, лендинги, чек-листы, презентации и карусели в твоей палитре</a></li>
+    <li><a href="#s10">Воронка и запуск: лид-магнит, бот, продающий урок, прогрев</a></li>
+    <li><a href="#s11">Все скиллы одним списком, правила и что делать, если сломалось</a></li>
+  </ol>
+</div>
+
+<div class="btn-row">
+  <a class="btn btn--primary" href="downloads/olesya-full-package.zip" download>Скачать весь пакет (zip)</a>
+  <a class="btn" href="downloads/files/README.md" download>README для тебя</a>
+  <a class="btn btn--ghost" href="downloads/files/INSTALL-FOR-CLAUDE.md" download>Инструкция для Claude</a>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section-heading" id="s1"><span>01.</span>Установка: <em>одна фраза</em> ставит всё</h2>
+<p class="section-lead">Результат этапа: на твоём маке стоит Claude, и он знает тебя, твой голос и все 16 ассистентов.</p>
+
+<div class="step"><div class="step__num">1</div><div class="step__body">
+  <div class="step__title">Установи Claude</div>
+  <div class="step__text">По гайду Майи «Claude с нуля»: <a href="https://maiyamaiya19999-bit.github.io/claude-montage-skill/start.html">maiyamaiya19999-bit.github.io/claude-montage-skill/start.html</a>. Нужен мак, подписка Claude и 20 минут.</div>
+</div></div>
+<div class="step"><div class="step__num">2</div><div class="step__body">
+  <div class="step__title">Заведи GitHub и пришли ник Майе</div>
+  <div class="step__text">Аккаунт на github.com: туда Claude будет складывать архив постов твоего канала и публиковать твои гайды. Для установки пакета никакие доступы не нужны. После регистрации говоришь Claude:</div>
+  <div class="prompt-box" style="margin:12px 0 0"><div class="prompt-box__text">Установи GitHub CLI (gh), если его нет, и залогинь меня в GitHub через браузер.</div></div>
+</div></div>
+<div class="step"><div class="step__num">3</div><div class="step__body">
+  <div class="step__title">Одна фраза установки</div>
+  <div class="step__text">Открываешь Claude и отправляешь слово в слово:</div>
+  <div class="prompt-box" style="margin:12px 0 0"><div class="prompt-box__text">Скачай архив https://maiyamaiya19999-bit.github.io/olesya-guide/downloads/olesya-full-package.zip и распакуй его в папку ~/olesya-setup. Открой в ней файл INSTALL-FOR-CLAUDE.md и выполни установку строго по нему. Потом отчитайся по каждому пункту: что установлено и что проверено.</div></div>
+  <div class="step__text" style="margin-top:12px">Claude сам скопирует скиллы в <code>~/.claude/commands/</code>, твой профиль и палитру в <code>~/.claude/brand/</code>, папку Telegram-ассистента в <code>~/tg-assistant/</code>, допишет твои правила в память и покажет таблицу проверок.</div>
+</div></div>
+<div class="step"><div class="step__num">4</div><div class="step__body">
+  <div class="step__title">Проверь на одном ролике</div>
+  <div class="step__text">Напиши <code>/reels-expert</code> и одну мысль: «разрешение — это не аффирмация, это поведение». Если сценарий звучит как ты, а не как нейросеть, установка прошла.</div>
+</div></div>
+
+<div class="highlight"><strong>Если архив не скачался.</strong> Проверь интернет и повтори фразу из шага 3 ещё раз. Не помогло — напиши Майе, она проверит ссылку.</div>
+
+<div class="btn-row">
+  <a class="btn btn--primary" href="downloads/files/README.md" download>README: 8 шагов</a>
+  <a class="btn" href="downloads/files/INSTALL-FOR-CLAUDE.md" download>INSTALL-FOR-CLAUDE.md</a>
+  <a class="btn btn--ghost" href="downloads/olesya-skills.zip" download>Только скиллы и бренд (zip)</a>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section-heading" id="s2"><span>02.</span>Твой профиль: <em>фундамент</em> для всех ассистентов</h2>
+<p class="section-lead">Каждый скилл перед работой читает два файла: PROFILE.md и TOV-SAMPLES.md. Поэтому Claude не пишет «в среднем безличном стиле», а пишет как ты.</p>
+
+<div class="scenario-card">
+  <div class="scenario-card__num">ФАЙЛ 1</div>
+  <div class="scenario-card__title">PROFILE.md: кто ты, история, ЦА, столпы, голос, границы, продукты</div>
+  <div class="scenario-card__point"><strong>Собран из твоей распаковки.</strong> «Революционер в кружеве», путь из декрета в свободу, три сегмента аудитории, четыре столпа контента, ключевая эмоция «приятное возбуждение и революция».</div>
+  <div class="scenario-card__point"><strong>Границы прописаны жёстко.</strong> Дети и отношения внутри семьи не выносятся публично ни в одном скилле. История из декрета звучит только как твоё состояние и твой выбор.</div>
+  <div class="scenario-card__point"><strong>Голос с переключателем.</strong> По умолчанию «прямо, без мата». Режим «без цензуры» включается только твоей командой и работает во всех скиллах.</div>
+  <div class="scenario-card__point"><strong>Пометки <code>[нужна деталь]</code>.</strong> Это места, которые ты заполняешь сама: ник, цена, кодовое слово, «что потеряла и что получила». Claude никогда не выдумает их за тебя.</div>
+  <div class="scenario-card__tip"><strong>Как заполнить:</strong> скажи Claude «открой ~/.claude/brand/PROFILE.md и пройди со мной по всем пометкам [нужна деталь] по одной». Он спросит, ты ответишь, он впишет.</div>
+</div>
+
+<div class="scenario-card">
+  <div class="scenario-card__num">ФАЙЛ 2</div>
+  <div class="scenario-card__title">TOV-SAMPLES.md: твои живые тексты как эталон</div>
+  <div class="scenario-card__point">Три твоих поста, куски гайда «Разреши» и разбор референсов, которые тебе откликаются. Когда напишешь новые сильные посты, добавляй их сюда: голос ассистентов будет расти вместе с тобой.</div>
+</div>
+
+<h3 class="sub-heading">Что решаем на первом созвоне</h3>
+<ul class="check">
+  <li><strong>Лицо или faceless.</strong> Рекомендация: лицо в reels, faceless остаётся темой твоей экспертизы «я знаю оба пути».</li>
+  <li><strong>Мат в контенте: да или нет.</strong> Рекомендация: по умолчанию без, «без цензуры» по команде.</li>
+  <li><strong>Один фокус на два месяца:</strong> «проявись и заработай через блог с ИИ». Эзотерика и остальное позже.</li>
+  <li><strong>Первый продукт</strong> из трёх вариантов этапа 03.</li>
+  <li><strong>Ресурс:</strong> сколько часов в неделю и сколько роликов готова снимать.</li>
+</ul>
+
+<div class="btn-row">
+  <a class="btn btn--primary" href="downloads/files/brand/PROFILE.md" download>PROFILE.md</a>
+  <a class="btn" href="downloads/files/brand/TOV-SAMPLES.md" download>TOV-SAMPLES.md</a>
+  <a class="btn btn--ghost" href="downloads/files/brand/style-guide.md" download>Палитра и стиль</a>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section-heading" id="s3"><span>03.</span>Продукт и оффер: <em>о чём блог</em> и что продаём</h2>
+<p class="section-lead">Сначала продукт, потом контент. Иначе контент будет «про всё» и ни к чему не вести.</p>
+
+<h3 class="sub-heading">О чём твой блог одной формулой</h3>
+<div class="highlight"><strong>Разрешение → инструмент → результат.</strong> Ты продаёшь не блогинг и не мышление по отдельности. Ты продаёшь разрешение быть видимой и богатой, а блог с ИИ за 15 минут в день — инструмент, которым это разрешение превращается в деньги.</div>
+<p class="text">Твоя связка, которой нет у конкурентов: маркетолог с воронками + ИИ + живая история из декрета + женская проявленность. Это и есть ответ на возражение «чем твой курс отличается».</p>
+
+<h3 class="sub-heading">Четыре столпа контента</h3>
+<ul class="headline-list">
+  <li><span class="headline-num">1</span><span class="headline-text">Разрешение и проявленность<small>Состояние, страхи, «кто решил, что тебе нельзя», деньги как разрешение. Твоя глубина.</small></span></li>
+  <li><span class="headline-num">2</span><span class="headline-text">Блог с нуля с ИИ<small>С лицом и без, простые инструменты, показ процесса. Твоя экспертность.</small></span></li>
+  <li><span class="headline-num">3</span><span class="headline-text">Деньги и воронки<small>Монетизация, продажи без впаривания, первый продукт. Твой маркетинг.</small></span></li>
+  <li><span class="headline-num">4</span><span class="headline-text">Личная история бунтарки<small>Декрет → свобода, отказ от «правильной» жизни. Доверие и узнаваемость.</small></span></li>
+</ul>
+
+<h3 class="sub-heading">Три варианта основного продукта</h3>
+<p class="text">Полные формулировки офферов, плюсы, риски и кому из сегментов продаётся: в файле «Офферы и трипваер». Здесь коротко.</p>
+
+<div class="scenario-card">
+  <div class="scenario-card__num">ВАРИАНТ А · РЕКОМЕНДАЦИЯ</div>
+  <div class="scenario-card__title">Интенсив «Проявись и заработай», 5 дней</div>
+  <div class="scenario-card__point"><strong>Обещание:</strong> за 5 дней собираешь блог, который говорит твоим голосом, и первый продукт. С лицом или без, с ИИ, 15 минут в день.</div>
+  <div class="scenario-card__point"><strong>Кому:</strong> сегменты «боюсь начать» и «хочу трансформации». Самые тёплые.</div>
+  <div class="scenario-card__point"><strong>Внутри:</strong> день 1 страх проявленности и разрешение · день 2 твоя экспертность и позиционирование · день 3 блог как инструмент дохода, ИИ-ассистенты · день 4 первый продукт за 24 часа · день 5 продажи без ощущения «впариваю».</div>
+  <div class="scenario-card__point"><strong>Цена-вилка:</strong> 3 000–8 000 ₽.</div>
+  <div class="scenario-card__tip"><strong>Почему это:</strong> точное пересечение твоей глубины (проявленность) и твоей экспертизы (деньги через блог). Лид-магнит «Разреши» уже готов и ведёт ровно сюда.</div>
+</div>
+<div class="scenario-card">
+  <div class="scenario-card__num">ВАРИАНТ Б</div>
+  <div class="scenario-card__title">Марафон «Блог с нуля в кайф с ИИ», 5 дней</div>
+  <div class="scenario-card__point"><strong>Обещание:</strong> блог с нуля без лица и перфекционизма, тексты и хуки, первые подписчики и первые деньги.</div>
+  <div class="scenario-card__point"><strong>Кому:</strong> сегмент «боюсь начать». Плюс: горячая тема, легко продаётся. Риск: много конкурентов, нужна твоя энергия как главное отличие.</div>
+</div>
+<div class="scenario-card">
+  <div class="scenario-card__num">ВАРИАНТ В</div>
+  <div class="scenario-card__title">Интенсив «Революция внутри», 4 дня</div>
+  <div class="scenario-card__point"><strong>Обещание:</strong> выйти из сценария «должна», «нельзя», «потом» и получить конкретный план новой жизни.</div>
+  <div class="scenario-card__point"><strong>Кому:</strong> сегмент «хочу трансформации». Плюс: твоя история и есть контент. Риск: без блога и денег внутри продукт уходит в «мышление», где тебя труднее отличить от других.</div>
+</div>
+
+<h3 class="sub-heading">Лестница продуктов</h3>
+<div class="table-wrap"><table>
+  <tr><th>Ступень</th><th>Что</th><th>Цена</th><th>Зачем</th></tr>
+  <tr><td><strong>Лид-магнит</strong></td><td>Гайд «Разреши себе быть богатой» (готов)</td><td>0 ₽</td><td>Подписка в бота, первое доверие</td></tr>
+  <tr><td><strong>Трипваер</strong></td><td>Мини-продукт из этапа 04</td><td>1 000–5 000 ₽</td><td>Первая оплата, отбор тёплых</td></tr>
+  <tr><td><strong>Основной</strong></td><td>Интенсив (вариант А/Б/В)</td><td>3 000–8 000 ₽</td><td>Результат и кейсы</td></tr>
+  <tr><td><strong>Личная работа</strong></td><td>Наставничество после первых кейсов</td><td>от 30 000 ₽</td><td>Высокий чек</td></tr>
+  <tr><td><strong>Позже</strong></td><td>Книга «Проявленность» (после редактуры твоим голосом, скилл <code>/voice-edit</code>)</td><td>990–1 990 ₽ или бонус</td><td>Ещё один вход</td></tr>
+</table></div>
+
+<h3 class="sub-heading">Как использовать ассистента по ЦА</h3>
+<p class="text">Скилл <code>/ca-tripwire</code> делает глубокое исследование твоей аудитории: боли четырёх уровней, желания, язык (фразы из поиска и комментариев), триггеры покупки и гипотезы трипваеров. Ниша уже вписана. Первый прогон мы сделали за тебя: файл «Анализ ЦА Олеси».</p>
+<div class="prompt-box"><div class="prompt-box__title">Фраза для Claude</div><div class="prompt-box__text">/ca-tripwire — проведи исследование по моей нише и сохрани результат в ~/tg-assistant/plan/ca-analysis.md. В конце дай 3 главных инсайта и топ-2 трипваера.</div></div>
+
+<div class="btn-row">
+  <a class="btn btn--primary" href="downloads/files/content/offers-and-tripwire.md" download>Офферы и трипваер</a>
+  <a class="btn" href="downloads/files/content/ca-analysis-olesya.md" download>Анализ ЦА Олеси</a>
+  <a class="btn btn--ghost" href="downloads/files/skills/ca-tripwire.md" download>Скилл /ca-tripwire</a>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section-heading" id="s4"><span>04.</span>Трипваер: <em>маленький продукт</em>, который продаётся сам</h2>
+<p class="section-lead">Трипваер за 1 000–5 000 ₽ покупают импульсивно, без звонков. Он должен попадать в одну точную боль и давать результат за 24–72 часа.</p>
+
+<h3 class="sub-heading">Из чего он собирается у тебя уже сейчас</h3>
+<ul class="guide-list">
+  <li><strong>Гайд «Разреши себе быть богатой».</strong> 8 страниц, практика на 7 дней, шаблон вопросов. Это лид-магнит, но его практика может стать платным «7-дневным разрешением» с чатом и разборами.</li>
+  <li><strong>Книга «Проявленность».</strong> 7 глав: что такое проявленность, страхи, из чего складывается, что показывать, сторис, узнаваемость, регулярность без выгорания. После редактуры твоим голосом это готовый платный продукт или ядро мини-курса.</li>
+  <li><strong>Твои ассистенты.</strong> Промпт для reels, постов и сторис, настроенный под ученицу, сам по себе трипваер: «твой ИИ-сценарист за 1 990 ₽».</li>
+</ul>
+
+<h3 class="sub-heading">Гипотезы для сверки (подробно в файле)</h3>
+<div class="table-wrap"><table>
+  <tr><th>Название</th><th>Формат</th><th>Обещание</th><th>Момент покупки</th></tr>
+  <tr><td><strong>«7 дней разрешения»</strong></td><td>мини-курс из гайда + чат</td><td>за неделю сделать один неудобный поступок про деньги</td><td>прочитала гайд, хочет поддержку</td></tr>
+  <tr><td><strong>«Блог без лица за выходные»</strong></td><td>пошаговый гайд + шаблоны</td><td>аккаунт, шапка, 5 постов за 2 дня</td><td>«боюсь показывать лицо», воскресенье вечер</td></tr>
+  <tr><td><strong>«Твой ИИ-сценарист»</strong></td><td>набор промптов + видеоурок 20 мин</td><td>10 сценариев reels за час</td><td>«не знаю, о чём снимать»</td></tr>
+  <tr><td><strong>«Проявленность»</strong></td><td>книга-гайд</td><td>разрешить себе быть видимой</td><td>после сторис про страх быть увиденной</td></tr>
+  <tr><td><strong>«Первые деньги с блога»</strong></td><td>чек-лист + шаблон оффера</td><td>первая продажа без воронки за 7 дней</td><td>«контент есть, денег нет»</td></tr>
+</table></div>
+
+<div class="prompt-box"><div class="prompt-box__title">Фраза для Claude, когда трипваер выбран</div><div class="prompt-box__text">/lead-magnet — собери структуру трипваера «[название]» из моего гайда «Разреши» и главы [N] книги. Мостик к интенсиву в конце, кодовое слово [слово].</div></div>
+
+<div class="btn-row">
+  <a class="btn btn--primary" href="downloads/files/content/offers-and-tripwire.md" download>Гипотезы трипваеров</a>
+  <a class="btn" href="downloads/files/skills/lead-magnet.md" download>Скилл /lead-magnet</a>
+  <a class="btn btn--ghost" href="downloads/files/skills/selling-lesson.md" download>Скилл /selling-lesson</a>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section-heading" id="s5"><span>05.</span>Упаковка профиля: <em>5 секунд</em>, чтобы понять, кто ты</h2>
+<p class="section-lead">Человек заходит в профиль и за пять секунд решает: подписаться или уйти. Упаковка отвечает на три вопроса: кто ты, что мне с этого, куда нажать.</p>
+
+<h3 class="sub-heading">Имя в профиле</h3>
+<ul class="headline-list">
+  <li><span class="headline-num">1</span><span class="headline-text">Олеся | блог, деньги, проявленность<small>для поиска, рекомендуем</small></span></li>
+  <li><span class="headline-num">2</span><span class="headline-text">Олеся | блог с нуля с ИИ</span></li>
+  <li><span class="headline-num">3</span><span class="headline-text">Олеся | революционер в кружеве<small>сильная фраза, но по ней не ищут: оставить в описании</small></span></li>
+</ul>
+
+<h3 class="sub-heading">Описание профиля: три варианта</h3>
+<div class="prompt-box"><div class="prompt-box__title">Вариант А · про результат</div><div class="prompt-box__text">Разрешаю себе быть видимой и богатой. Показываю, как тебе тоже
+Блог с нуля (с лицом или без) + ИИ = деньги за 15 минут в день
+Из декрета и страха — в свободу. Ты тоже можешь
+↓ забери гайд «Разреши себе быть богатой»</div></div>
+<div class="prompt-box"><div class="prompt-box__title">Вариант Б · характер вперёд</div><div class="prompt-box__text">Революционер в кружеве 🖤
+Учу вести блог легко, зарабатывать красиво и не спрашивать разрешения
+ИИ вместо команды. Faceless — если хочешь. Деньги — обязательно
+↓ бесплатный гайд</div></div>
+<div class="prompt-box"><div class="prompt-box__title">Вариант В · для тех, кто боится начать</div><div class="prompt-box__text">Ты не «почти готова». Ты готова
+Блог с нуля с ИИ, без лица и без выгорания
+Маркетолог, бывший руководитель, мама в декрете, которая выбрала себя
+↓ гайд «Разреши себе быть богатой» — бесплатно</div></div>
+
+<h3 class="sub-heading">Шесть актуальных</h3>
+<div class="table-wrap"><table>
+  <tr><th>#</th><th>Название</th><th>Что внутри</th><th>Зачем</th></tr>
+  <tr><td>1</td><td><strong>Кто я</strong></td><td>5–7 сторис: революционер в кружеве, из декрета в свободу, во что верю, чего не будет в блоге</td><td>Знакомство за минуту</td></tr>
+  <tr><td>2</td><td><strong>Начни</strong></td><td>С чего начать блог, лицо или без, первые 3 действия, ссылка на гайд</td><td>Сегмент «боюсь начать»</td></tr>
+  <tr><td>3</td><td><strong>ИИ</strong></td><td>Показ экрана: Claude собирает сценарий за 15 минут. «Ты не технарь, у тебя команда»</td><td>Снимает «это сложно»</td></tr>
+  <tr><td>4</td><td><strong>Деньги</strong></td><td>Разрешение быть богатой, воронка на пальцах</td><td>Сегмент «веду, но не зарабатываю»</td></tr>
+  <tr><td>5</td><td><strong>Отзывы</strong></td><td>Результаты учениц</td><td>Создать после первого потока</td></tr>
+  <tr><td>6</td><td><strong>Гайд</strong></td><td>Как забрать, что внутри, 2 скрина</td><td>Дорога к лид-магниту</td></tr>
+</table></div>
+<p class="text">Обложки: однотонные бежевые квадраты с одним словом в Libre Baskerville, без иконок. Ссылка в шапке одна: Telegram-бот с гайдом. Аватар: лицо крупно и тёплый свет, а если пока faceless, силуэт или спина в кружеве.</p>
+
+<h3 class="sub-heading">Три закрепа</h3>
+<ul class="guide-list">
+  <li><strong>Reels «Кто я за 30 секунд».</strong> Личная история: окно, «никто не спасёт, и не должен», сегодняшняя точка. Скилл <code>/reels-story</code>.</li>
+  <li><strong>Reels «Разрешение — это не аффирмация, это поведение».</strong> Экспертный, с призывом забрать гайд. Скилл <code>/reels-expert</code>.</li>
+  <li><strong>Карусель «Блог — это не сцена».</strong> Твой готовый пост в 1080×1350. Скилл <code>/carousel</code>.</li>
+</ul>
+
+<h3 class="sub-heading">Идеи постов и reels на раскрытие личности</h3>
+<p class="text">В банке тем 30 постов: 10 на раскрытие личности («революционер в кружеве», бунтарь с детства, уход с руководящей должности, «нытик и тревожник» → сила, «идти учиться новому»), 10 экспертных и 10 дискуссионных на твоих спорных мнениях. Плюс 10 вопросов тебе для сбора необычных фактов о себе: их нет в материалах, их знаешь только ты.</p>
+<div class="prompt-box"><div class="prompt-box__title">Фраза для Claude</div><div class="prompt-box__text">Открой ~/olesya-setup/content/tg-post-ideas.md, задай мне 10 вопросов про необычные факты по одному и допиши ответы в PROFILE.md в раздел «Кто она». Потом предложи 5 тем постов из этих фактов.</div></div>
+
+<div class="btn-row">
+  <a class="btn btn--primary" href="downloads/files/content/profile-packaging.md" download>Упаковка профиля (файл)</a>
+  <a class="btn" href="downloads/files/content/tg-post-ideas.md" download>30 тем постов + 10 вопросов</a>
+  <a class="btn btn--ghost" href="downloads/files/content/reels-ideas.md" download>35 идей reels</a>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section-heading" id="s6"><span>06.</span>Reels: <em>экспертные</em>, адаптированные и с личной историей</h2>
+<p class="section-lead">Два скилла и два режима. Каждый сценарий ставится на суфлёр и читается с первого дубля: 40–60 секунд, одна мысль, финал, который хочется сохранить.</p>
+
+<div class="scenario-card">
+  <div class="scenario-card__num">СКИЛЛ · /reels-expert</div>
+  <div class="scenario-card__title">Разговорный экспертный ролик</div>
+  <div class="scenario-card__point"><strong>Формула:</strong> сдвиг взгляда → механика → доказательство → польза. Зритель думает «о, я не так это понимала, надо сохранить».</div>
+  <div class="scenario-card__point"><strong>Режим 1, адаптация залётного ролика.</strong> Присылаешь транскрибацию чужого ролика, который хорошо зашёл (её даёт парсер из этапа 07). Claude сохраняет приём хука, структуру и ритм, а содержание переписывает под твою нишу и твой оффер. Чужие факты и кейсы не копируются никогда.</div>
+  <div class="scenario-card__point"><strong>Режим 2, сборка из потока мыслей.</strong> Надиктовываешь хаотичный поток по теме, Claude вычленяет одну экспертную мысль и собирает ролик. Ничего от себя: нет детали, ставит <code>[нужна деталь]</code>.</div>
+  <div class="scenario-card__tip"><strong>Фраза:</strong> «/reels-expert — ниша: деньги через блог. Мысль: финансовый блок — это не лень, а защита психики. Собери ролик под суфлёр».</div>
+</div>
+
+<div class="scenario-card">
+  <div class="scenario-card__num">СКИЛЛ · /reels-story</div>
+  <div class="scenario-card__title">Экспертный ролик с личной историей</div>
+  <div class="scenario-card__point"><strong>Структура:</strong> хук из сцены → сцена в 2–3 предложениях → поворот и решение → механика для зрительницы → разрешение → одна сильная строка и призыв.</div>
+  <div class="scenario-card__point"><strong>Сцены-якоря из твоей истории</strong> уже выписаны в скилле: окно, «никто не спасёт, и не должен», уход с руководящей должности, первые деньги в декрете, отказ от идеальной картинки, «нытик и тревожник» → сила, «идти учиться новому».</div>
+  <div class="scenario-card__point"><strong>Правила:</strong> боль называем, не смакуем. Без жалости к себе. Дети и семья остаются за кадром.</div>
+  <div class="scenario-card__tip"><strong>Фраза:</strong> «/reels-story — сцена: окно и ребёнок на руках. Мысль: опора только во мне, и это не трагедия, а свобода. Ролик на 45 секунд».</div>
+</div>
+
+<h3 class="sub-heading">Как снимать, чтобы это работало</h3>
+<ul class="headline-list">
+  <li><span class="headline-num">1</span><span class="headline-text">Сценарий в суфлёр (приложение Teleprompter или заметки на втором телефоне).<small>Читаешь с первого дубля: скилл пишет так, чтобы это звучало как речь, а не как текст.</small></span></li>
+  <li><span class="headline-num">2</span><span class="headline-text">Один свет, один фон, одна обложка.<small>Крупный заголовок на бежевом фоне, лицо или силуэт в правом нижнем углу.</small></span></li>
+  <li><span class="headline-num">3</span><span class="headline-text">Ритм: 1 ролик в день.<small>Снимать каждый день не нужно: раз в неделю садишься и снимаешь все 7 подряд через суфлёр. Сценарии готовы заранее, один присест — 1,5–2 часа. Начать можно с 3–4 в неделю и дойти до ежедневного.</small></span></li>
+  <li><span class="headline-num">4</span><span class="headline-text">Идеи — из парсера, не из головы.<small>Принцип такой: раз в неделю смотришь топ конкурентов за 7 дней → выбираешь 5–7 роликов с наибольшими комментариями → транскрибация → /reels-expert режим 1 переписывает под тебя. Ты не придумываешь темы, ты берёшь те, что уже сработали. Банк из 35 идей — запас на дни, когда парсер не дал подходящего.</small></span></li>
+  <li><span class="headline-num">5</span><span class="headline-text">Подпись одна и та же.<small>«Ты — творец своей реальности 🖤» под каждым роликом. Узнаваемость строится повтором.</small></span></li>
+</ul>
+
+<div class="btn-row">
+  <a class="btn btn--primary" href="downloads/files/skills/reels-expert.md" download>Скилл /reels-expert</a>
+  <a class="btn" href="downloads/files/skills/reels-story.md" download>Скилл /reels-story</a>
+  <a class="btn btn--ghost" href="downloads/files/content/reels-ideas.md" download>Банк идей reels</a>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section-heading" id="s7"><span>07.</span>Парсер контента: <em>что залетает</em> у конкурентов</h2>
+<p class="section-lead">Парсер смотрит 20–40 аккаунтов твоей ниши и раз в неделю выдаёт топ reels и постов за 7 дней по комментариям. Выбираешь 3–5 роликов, получаешь транскрибацию, отдаёшь в <code>/reels-expert</code> режим 1. Так ты снимаешь то, что уже доказало, что работает, но своим голосом.</p>
+
+<h3 class="sub-heading">Что это технически</h3>
+<p class="text">Это копия бота Майи «Кирилл»: Telegram-бот и веб-страница, которые ходят в Instagram через сервис Apify, пишут результат в твою Google-таблицу и присылают топ-20 в Telegram. «Разбор по ссылке» скачивает ролик и расшифровывает речь через Whisper. Веб-версия крутится на Railway и открывается с телефона по ссылке и паролю.</p>
+
+<h3 class="sub-heading">Что понадобится и сколько стоит</h3>
+<div class="table-wrap"><table>
+  <tr><th>Сервис</th><th>Зачем</th><th>Стоимость</th></tr>
+  <tr><td><strong>Telegram-бот</strong> (@BotFather)</td><td>Кнопки и сообщения с топом</td><td>0 ₽</td></tr>
+  <tr><td><strong>Apify</strong></td><td>Достаёт данные из Instagram</td><td>free-план $5/мес, обновляется 8-го числа</td></tr>
+  <tr><td><strong>OpenAI</strong></td><td>Whisper: расшифровка речи из роликов</td><td>копейки за ролик, пополнить $5</td></tr>
+  <tr><td><strong>Google-таблица + сервисный аккаунт</strong></td><td>Куда пишутся результаты</td><td>0 ₽</td></tr>
+  <tr><td><strong>Railway</strong></td><td>Чтобы открывать с телефона</td><td>Hobby $5/мес. Можно без него: запускать на маке</td></tr>
+</table></div>
+
+<h3 class="sub-heading">Установка: пять шагов</h3>
+<div class="step"><div class="step__num">1</div><div class="step__body"><div class="step__title">Заведи ключи</div><div class="step__text">Бот в @BotFather, токен Apify, ключ OpenAI, сервисный аккаунт Google с доступом «редактор» к твоей таблице. В гайде каждый шаг с кликами.</div></div></div>
+<div class="step"><div class="step__num">2</div><div class="step__body"><div class="step__title">Скажи Claude поставить код</div><div class="prompt-box" style="margin:10px 0 0"><div class="prompt-box__text">/parser — установи парсер по гайду ~/olesya-setup/parser/PARSER-GUIDE.md. Иди по шагам по одному и говори, что нужно от меня.</div></div></div></div>
+<div class="step"><div class="step__num">3</div><div class="step__body"><div class="step__title">Вставь ключи в .env</div><div class="step__text">Claude откроет файл, ты вставляешь свои ключи сама. Ключи никому не пересылать, файл не попадает в интернет.</div></div></div>
+<div class="step"><div class="step__num">4</div><div class="step__body"><div class="step__title">Подбери конкурентов</div><div class="step__text">20–40 аккаунтов: 5 крупных, 15 средних (20–100 тыс.), 10 растущих. Ниша: проявленность, блог с ИИ, женский заработок онлайн, faceless. Claude предложит список, ты подтверждаешь.</div></div></div>
+<div class="step"><div class="step__num">5</div><div class="step__body"><div class="step__title">Первый прогон и телефон</div><div class="step__text">Локально открывается <code>localhost:8123</code>. Чтобы работать с телефона, Claude задеплоит на Railway и даст ссылку с паролем.</div></div></div>
+
+<h3 class="sub-heading">Правила использования</h3>
+<ul class="guide-list">
+  <li><strong>Раз в неделю, не чаще.</strong> Лимит Apify небольшой, одного прогона по 30 аккаунтам хватает.</li>
+  <li><strong>Смотри на комментарии, а не на лайки.</strong> Топ отсортирован по комментариям: это показатель, что ролик задел.</li>
+  <li><strong>Бери приём, не содержание.</strong> Транскрибация → <code>/reels-expert</code> режим 1. Чужие факты, кейсы и историю не повторять.</li>
+  <li><strong>Сохраняй транскрибации</strong> в <code>~/tg-assistant/competitors/reels/</code>, чтобы Claude видел, что ты уже адаптировала.</li>
+</ul>
+
+<div class="btn-row">
+  <a class="btn btn--primary" href="downloads/files/parser/PARSER-GUIDE.md" download>Гайд по парсеру (подробный)</a>
+  <a class="btn" href="downloads/files/skills/parser.md" download>Скилл /parser</a>
+  <a class="btn btn--ghost" href="downloads/olesya-parser.zip" download>Папка parser (zip)</a>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section-heading" id="s8"><span>08.</span>Telegram-канал и <em>твоя папка-ассистент</em></h2>
+<p class="section-lead">Канал — место, где живут посты, лид-магниты и продажи. Папка-ассистент — система, как у Майи: Claude видит все твои посты, знает твой голос и работает как продюсер канала. Только папка твоя, канал твой, репозиторий твой.</p>
+
+<h3 class="sub-heading">Часть 1. Канал</h3>
+<div class="step"><div class="step__num">1</div><div class="step__body"><div class="step__title">Создай или переоформи канал</div><div class="step__text">Название: «Олеся | революционер в кружеве» или «Олеся · блог, деньги, проявленность». Публичный юзернейм обязателен: по нему работает синхронизация.</div></div></div>
+<div class="step"><div class="step__num">2</div><div class="step__body"><div class="step__title">Описание канала</div><div class="prompt-box" style="margin:10px 0 0"><div class="prompt-box__text">Блог, деньги и проявленность — без разрешения сверху.
+Показываю, как вести блог с нуля с ИИ (с лицом или без) и зарабатывать красиво.
+Только суть. 🖤
+Гайд «Разреши себе быть богатой» — в закрепе.</div></div></div></div>
+<div class="step"><div class="step__num">3</div><div class="step__body"><div class="step__title">Закреп</div><div class="step__text">Пост-знакомство (твой первый пост, обновлённый скиллом <code>/tg-posts</code>) плюс ссылка на гайд «Разреши». Пока бота нет, гайд лежит файлом прямо в закрепе.</div></div></div>
+<div class="step"><div class="step__num">4</div><div class="step__body"><div class="step__title">Ритм</div><div class="step__text">3 поста в неделю: личный, экспертный, вовлекающий. Темы из банка. Сторис из постов делает <code>/stories</code>.</div></div></div>
+
+<h3 class="sub-heading">Часть 2. Папка-ассистент ~/tg-assistant</h3>
+<p class="text">Внутри: архив всех постов канала (подтягивается автоматически каждые 3 часа), style.md и voice.md с твоими правилами письма, методология прогревов Майи, черновики и планы. Всё лежит в твоём приватном репозитории на GitHub, поэтому с телефона в Claude ты видишь то же самое, что на маке.</p>
+
+<div class="step"><div class="step__num">1</div><div class="step__body"><div class="step__title">Бот-секретарь</div><div class="step__text">В @BotFather создаёшь бота (любое имя), копируешь токен. Добавляешь бота администратором канала: без этого Telegram не отдаёт ему посты.</div></div></div>
+<div class="step"><div class="step__num">2</div><div class="step__body"><div class="step__title">Одна фраза для Claude</div><div class="prompt-box" style="margin:10px 0 0"><div class="prompt-box__text">Открой ~/tg-assistant/README.md и подними мою папку-ассистента по шагам: config.json с моим токеном и каналом, загрузка истории канала, приватный репозиторий на моём GitHub, автосинхронизация. После каждого шага показывай, что проверила.</div></div></div></div>
+<div class="step"><div class="step__num">3</div><div class="step__body"><div class="step__title">Проверка</div><div class="step__text">Публикуешь тестовый пост в канал, говоришь Claude «/tg». В папке <code>posts/</code> должен появиться новый файл с этим постом.</div></div></div>
+<div class="step"><div class="step__num">4</div><div class="step__body"><div class="step__title">Работа с телефона</div><div class="step__text">Открываешь claude.ai/code, подключаешь свой репозиторий tg-assistant, пишешь «прочитай CLAUDE.md и напиши личный пост про…». Черновик ляжет в drafts/ и появится на маке.</div></div></div>
+
+<div class="highlight"><strong>Важно.</strong> Папка лежит в домашней папке <code>~/tg-assistant</code>, а не на Рабочем столе: macOS блокирует автосинхронизацию для папок на Desktop. Токен бота лежит в config.json, который не попадает в репозиторий.</div>
+
+<h3 class="sub-heading">Скиллы для канала</h3>
+<div class="table-wrap"><table>
+  <tr><th>Скилл</th><th>Что делает</th><th>Фраза</th></tr>
+  <tr><td><code>/tg</code></td><td>Режим продюсера: подтянуть свежие посты, загрузить твой голос, дальше писать и планировать</td><td>«/tg — предложи 5 тем на неделю, не повторяя последние 20 постов»</td></tr>
+  <tr><td><code>/tg-posts</code></td><td>Личный, экспертный пост или подборка живой речью, готово к публикации</td><td>«/tg-posts — экспертный пост про блог без лица как фильтр»</td></tr>
+  <tr><td><code>/stories</code></td><td>Серия 6–8 сторис из любого поста по принципам охватов</td><td>«/stories — сделай сторителлинг из этого поста: [текст]»</td></tr>
+  <tr><td><code>/voice-edit</code></td><td>Переписать сырой или нейросетевой текст твоим голосом (книга, гайд, пост)</td><td>«/voice-edit — оживи главу 2 книги»</td></tr>
+</table></div>
+
+<div class="btn-row">
+  <a class="btn btn--primary" href="downloads/olesya-tg-assistant.zip" download>Папка tg-assistant (zip)</a>
+  <a class="btn" href="downloads/files/tg-assistant-template/README.md" download>README папки</a>
+  <a class="btn btn--ghost" href="downloads/files/skills/tg-posts.md" download>Скилл /tg-posts</a>
+  <a class="btn btn--ghost" href="downloads/files/skills/stories.md" download>Скилл /stories</a>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section-heading" id="s9"><span>09.</span>Гайды, лендинги, чек-листы, презентации, карусели <em>в твоей палитре</em></h2>
+<p class="section-lead">Те же скиллы, что у Майи, с той же структурой и типографикой, но в твоих цветах: тёплый бежевый фон, кофейно-коричневый текст, коричневый акцент. Всё квадратное, эстетичное, без иконок и стикеров.</p>
+
+<div class="table-wrap"><table>
+  <tr><th>Скилл</th><th>Что делает</th><th>Когда</th></tr>
+  <tr><td><code>/guide</code></td><td>HTML-гайд, статья, чек-лист или лендинг с кнопками</td><td>Лид-магнит, лендинг интенсива, чек-лист для трипваера</td></tr>
+  <tr><td><code>/presentation</code></td><td>Слайды 60/40: слева контент, справа место под твоё видео</td><td>Продающий урок, уроки интенсива</td></tr>
+  <tr><td><code>/presentation-full</code></td><td>Полноэкранные слайды 16:9 с экспортом в PDF</td><td>Эфиры, вебинары, презентация продукта</td></tr>
+  <tr><td><code>/carousel</code></td><td>Карусель 1080×1350 в PNG</td><td>Посты-карусели из твоих текстов</td></tr>
+</table></div>
+
+<h3 class="sub-heading">Палитра</h3>
+<div class="table-wrap"><table>
+  <tr><th>Элемент</th><th>Цвет</th></tr>
+  <tr><td>Фон</td><td><code>#FAF7F3</code> тёплый бежево-белый</td></tr>
+  <tr><td>Текст</td><td><code>#2A211C</code> тёмный кофейный</td></tr>
+  <tr><td>Акцент</td><td><code>#7B5A43</code> коричневый</td></tr>
+  <tr><td>Блоки и карточки</td><td><code>#F1ECE6</code>, <code>#F5F1EC</code>, рамка <code>#E4DCD3</code></td></tr>
+  <tr><td>На тёмном фоне</td><td><code>#D9BFA4</code> песочный (коричневый на тёмном запрещён)</td></tr>
+</table></div>
+<p class="text">Шрифты те же: Libre Baskerville для заголовков, Inter для текста. В навбаре монограмма «O» и твой ник курсивом. Когда появится логотип, Claude заменит монограмму за одну фразу.</p>
+
+<h3 class="sub-heading">Как опубликовать гайд, чтобы у него была ссылка</h3>
+<div class="step"><div class="step__num">1</div><div class="step__body"><div class="step__title">Собери</div><div class="prompt-box" style="margin:10px 0 0"><div class="prompt-box__text">/guide — оформи этот текст как лендинг гайда с кнопкой «Забрать в боте»: [текст]. Сохрани в ~/Desktop/олеся/гайды/razreshi/index.html</div></div></div></div>
+<div class="step"><div class="step__num">2</div><div class="step__body"><div class="step__title">Опубликуй на своём GitHub</div><div class="prompt-box" style="margin:10px 0 0"><div class="prompt-box__text">Опубликуй папку ~/Desktop/олеся/гайды/razreshi на GitHub Pages в моём аккаунте, репозиторий olesya-guides, и дай ссылку.</div></div></div></div>
+<div class="step"><div class="step__num">3</div><div class="step__body"><div class="step__title">Ссылка готова через минуту</div><div class="step__text">Её ставишь в бота, в закреп канала или в шапку профиля.</div></div></div>
+
+<div class="btn-row">
+  <a class="btn btn--primary" href="downloads/files/skills/guide.md" download>Скилл /guide</a>
+  <a class="btn" href="downloads/files/skills/presentation.md" download>/presentation</a>
+  <a class="btn" href="downloads/files/skills/presentation-full.md" download>/presentation-full</a>
+  <a class="btn" href="downloads/files/skills/carousel.md" download>/carousel</a>
+  <a class="btn btn--ghost" href="downloads/files/brand/style-guide.md" download>Палитра</a>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section-heading" id="s10"><span>10.</span>Воронка и запуск: <em>от гайда до оплаты</em></h2>
+<p class="section-lead">Когда упаковка и контент работают, собираем путь: человек забирает гайд в боте → получает цепочку сообщений → покупает трипваер → приходит на продающий урок → покупает интенсив. Это делают четыре скилла.</p>
+
+<div class="scenario-card">
+  <div class="scenario-card__num">СКИЛЛ · /lead-magnet</div>
+  <div class="scenario-card__title">Продающий лид-магнит</div>
+  <div class="scenario-card__point">Claude проводит тебя через 21 вопрос и собирает структуру бесплатного материала, который ведёт к покупке. Часть ответов уже известна из твоего профиля: ты подтверждаешь, а не печатаешь. Отдельный раздел: как из гайда «Разреши» и книги сделать лид-магниты с мостиком к продукту.</div>
+</div>
+<div class="scenario-card">
+  <div class="scenario-card__num">СКИЛЛ · /tg-funnel</div>
+  <div class="scenario-card__title">Цепочка для Telegram-бота</div>
+  <div class="scenario-card__point">Заполняешь данные о продукте (цена, дедлайн, что внутри), Claude собирает всю цепочку от приветствия до закрытия продажи за один запрос: выдача гайда, дожим, оффер, снятие возражений, последний день. Тексты в твоём голосе. Собирается в любом конструкторе ботов.</div>
+</div>
+<div class="scenario-card">
+  <div class="scenario-card__num">СКИЛЛ · /selling-lesson</div>
+  <div class="scenario-card__title">Продающий видеоурок</div>
+  <div class="scenario-card__point">Структура урока на 30–45 минут с таймингом: крючок → кто ты и почему тебе верить → боль и её механика → сдвиг взгляда → три шага с ценностью → результат → оффер → возражения → призыв. На выходе тезисный сценарий и текст слайдов, которые сразу уходят в <code>/presentation</code>.</div>
+</div>
+<div class="scenario-card">
+  <div class="scenario-card__num">СКИЛЛ · /progrev</div>
+  <div class="scenario-card__title">Стратегия прогрева по дням</div>
+  <div class="scenario-card__point">Две фазы: разогрев и продажи. Каждый день карточка: тип, цель, посыл и 3–5 вариантов темы на выбор. Без дефицита и давления, в твоём голосе. Внутри пример прогрева как эталон формата.</div>
+</div>
+
+<h3 class="sub-heading">Четыре недели</h3>
+<div class="table-wrap"><table>
+  <tr><th>Неделя</th><th>Что делаем</th><th>Результат</th></tr>
+  <tr><td><strong>1. Упаковка</strong></td><td>Установка пакета, заполнение PROFILE.md, шапка, актуальные, закрепы, канал и папка-ассистент</td><td>Профиль и канал упакованы, Claude знает тебя</td></tr>
+  <tr><td><strong>2. Контент</strong></td><td>Парсер, первый прогон по конкурентам, 7 сценариев из его находок и банка, первая батч-съёмка через суфлёр, 5 постов, 2 серии сторис</td><td>Ритм: 1 ролик в день, съёмка раз в неделю</td></tr>
+  <tr><td><strong>3. Продукт</strong></td><td>Анализ ЦА, оффер и трипваер, лид-магнит, цепочка бота, продающий урок</td><td>Воронка лид-магнит → трипваер работает</td></tr>
+  <tr><td><strong>4. Запуск</strong></td><td>Карта прогрева, посты и reels по карте, лендинг, открытие продаж</td><td>Первый запуск и первые кейсы</td></tr>
+</table></div>
+
+<div class="btn-row">
+  <a class="btn btn--primary" href="downloads/files/content/call-plan.md" download>План созвонов и 4 недель</a>
+  <a class="btn" href="downloads/files/skills/tg-funnel.md" download>/tg-funnel</a>
+  <a class="btn" href="downloads/files/skills/progrev.md" download>/progrev</a>
+  <a class="btn" href="downloads/files/skills/selling-lesson.md" download>/selling-lesson</a>
+</div>
+
+<!-- ============================================================ -->
+<h2 class="section-heading" id="s11"><span>11.</span>Все скиллы <em>одним списком</em>, правила и починка</h2>
+
+<div class="table-wrap"><table>
+  <tr><th>Скилл</th><th>Что делает</th></tr>
+  <tr><td><code>/reels-expert</code></td><td>Экспертный разговорный ролик: из потока мыслей или адаптация залётного</td></tr>
+  <tr><td><code>/reels-story</code></td><td>Экспертный ролик с личной историей</td></tr>
+  <tr><td><code>/tg</code></td><td>Режим продюсера Telegram-канала с твоей папкой постов</td></tr>
+  <tr><td><code>/tg-posts</code></td><td>Посты в Telegram живой речью</td></tr>
+  <tr><td><code>/stories</code></td><td>Сторителлинг из поста в 6–8 сторис</td></tr>
+  <tr><td><code>/voice-edit</code></td><td>Переписать любой текст твоим голосом (книга, гайд, пост)</td></tr>
+  <tr><td><code>/ca-tripwire</code></td><td>Глубокий анализ ЦА и гипотезы трипваеров</td></tr>
+  <tr><td><code>/lead-magnet</code></td><td>Структура продающего бесплатного материала</td></tr>
+  <tr><td><code>/selling-lesson</code></td><td>Продающий видеоурок с таймингом и слайдами</td></tr>
+  <tr><td><code>/tg-funnel</code></td><td>Цепочка Telegram-бота от гайда до оплаты</td></tr>
+  <tr><td><code>/progrev</code></td><td>Стратегия прогрева по дням</td></tr>
+  <tr><td><code>/guide</code></td><td>Гайд, статья, чек-лист, лендинг в твоей палитре</td></tr>
+  <tr><td><code>/presentation</code></td><td>Слайды 60/40 под видеоурок</td></tr>
+  <tr><td><code>/presentation-full</code></td><td>Полноэкранная презентация + PDF</td></tr>
+  <tr><td><code>/carousel</code></td><td>Карусель 1080×1350 PNG</td></tr>
+  <tr><td><code>/parser</code></td><td>Установка и работа с парсером контента</td></tr>
+</table></div>
+
+<h3 class="sub-heading">Правила</h3>
+<ul class="guide-list">
+  <li><strong>Профиль — закон.</strong> Если Claude пишет «не так», правишь не запрос, а PROFILE.md или TOV-SAMPLES.md. Один раз, навсегда.</li>
+  <li><strong>Границы абсолютны.</strong> Дети и семья не попадают в контент ни в каком скилле.</li>
+  <li><strong>Ничего от себя.</strong> Claude не выдумывает факты, цифры и кейсы. Видишь <code>[нужна деталь]</code>, заполняешь сама.</li>
+  <li><strong>Claude и reels латиницей.</strong> В любом тексте.</li>
+  <li><strong>Материалы Майи</strong> (промпты, методология прогревов, парсер) не выкладываются в открытый доступ и не передаются дальше.</li>
+  <li><strong>Публикуешь только ты.</strong> Черновики лежат в drafts/, в канал их отправляешь сама.</li>
+</ul>
+
+<h3 class="sub-heading">Если сломалось</h3>
+<div class="table-wrap"><table>
+  <tr><th>Симптом</th><th>Что сделать</th></tr>
+  <tr><td>Claude не знает скилл «/…»</td><td>«Проверь, что в ~/.claude/commands есть файл …md; если нет, обнови пакет по INSTALL-FOR-CLAUDE.md, раздел Обновление»</td></tr>
+  <tr><td>Тексты звучат «как нейросеть»</td><td>«Перечитай ~/.claude/brand/TOV-SAMPLES.md и перепиши по чек-листу из /voice-edit»</td></tr>
+  <tr><td>/tg не видит новых постов</td><td>Бот не админ канала или неверный юзернейм в config.json. «Открой ~/tg-assistant/README.md, раздел проверки»</td></tr>
+  <tr><td>Парсер молчит или пустой</td><td>Таблица «Если что-то сломалось» в конце PARSER-GUIDE.md: чаще всего кончился лимит Apify</td></tr>
+  <tr><td>Гайд без палитры</td><td>«Перечитай ~/.claude/brand/style-guide.md и пересобери по скиллу /guide»</td></tr>
+  <tr><td>Всё переустановить</td><td>Фраза из этапа 01, шаг 3. Посты, черновики и config.json не затираются</td></tr>
+</table></div>
+
+<h3 class="sub-heading">Как обновить пакет</h3>
+<div class="prompt-box"><div class="prompt-box__text">Обнови мой пакет: скачай свежий архив https://maiyamaiya19999-bit.github.io/olesya-guide/downloads/olesya-full-package.zip, распакуй в ~/olesya-setup и выполни раздел «Обновление» из INSTALL-FOR-CLAUDE.md. Мой PROFILE.md не перезаписывай без вопроса.</div></div>
+
+</div>
+
+<footer class="footer">© 2026 · maysoulme · Личная работа. Материалы не для передачи третьим лицам.</footer>
+
+</body>
+</html>
