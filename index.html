@@ -53,13 +53,14 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; back
 .btn--primary:hover { background: #5E4433; }
 .footer { text-align: center; padding: 64px 24px; border-top: 1px solid var(--hair); margin-top: 64px; color: var(--soft); font-size: 14px; }
 @media screen and (max-width: 768px) { .nav { padding: 16px 20px; } .hero h1 { font-size: 30px; } .stage > summary { padding: 18px; gap: 12px; } .stage__body { padding: 4px 18px 20px; } .mat { flex-wrap: wrap; } }
+.facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 10px 0 6px; } .fact { border: 1px solid var(--hair); padding: 14px 16px; background: #fff; } .fact__k { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--soft); margin-bottom: 4px; } .fact__v { font-size: 15px; color: var(--ink); line-height: 1.55; } .old { opacity: .75; } @media screen and (max-width: 768px) { .facts { grid-template-columns: 1fr; } .stage > summary { flex-wrap: wrap; } .stage__head { flex: 1 1 220px; } .stage__status { margin-left: 46px; } }
+html,body{overflow-x:hidden;max-width:100%;}
 </style>
 </head>
 <body>
 
 <nav class="nav">
-  <a class="nav__mono" href="#">O</a>
-  <span class="nav__logo-name">Олеся · блог, деньги, проявленность</span>
+  <span class="nav__logo-name">Олеся · LACELIKE · клиенты из блога</span>
 </nav>
 
 <div class="container">
@@ -67,30 +68,41 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; back
 <section class="hero">
   <div class="badge">Личная работа с Майей · maysoulme</div>
   <h1>Дорожная карта: <em>твоя система блога</em> шаг за шагом</h1>
-  <p class="hero__desc">Всё, что мы собираем в личной работе, — на одной странице и по порядку. Нажимай на этап: внутри всё, что на нём сделано, материалы и задачи недели. Возвращайся сюда каждый раз, когда садишься работать.</p>
-  <p class="hero__meta">5 ЭТАПОВ · СКИЛЛЫ ПОД КАЖДЫЙ ШАГ · ВСЕ МАТЕРИАЛЫ В ОДНОМ МЕСТЕ</p>
+  <p class="hero__desc">Всё, что мы собрали в личной работе, на одной странице и по порядку. Нажимай на этап: внутри всё, что на нём сделано, материалы и задачи недели. Возвращайся сюда каждый раз, когда садишься работать.</p>
+  <p class="hero__meta">5 ЭТАПОВ · СКИЛЛЫ ПОД КАЖДЫЙ ШАГ · ВСЕ МАТЕРИАЛЫ В ОДНОМ МЕСТЕ · ОБНОВЛЕНО 14.10.2026</p>
 </section>
 
 <div class="legend"><span><b>✓ готово</b> — этап пройден</span><span><b style="color:var(--accent)">● сейчас</b> — здесь работаем на этой неделе</span><span><b>· дальше</b> — впереди</span></div>
 
 <!-- ЭТАП 0 -->
 <details class="stage">
-<summary><span class="stage__num">0</span><div class="stage__head"><div class="stage__title">Стратегический созвон и сбор материалов</div><div class="stage__sub">Разобрали принцип работы, собрали сырьё: распаковку, твои тексты, манифест, анализ аудитории. Из этого выросло всё остальное.</div></div><span class="stage__status st-done">✓ готово</span></summary>
+<summary><span class="stage__num">0</span><div class="stage__head"><div class="stage__title">Стратегический созвон и сбор материалов</div><div class="stage__sub">Собрали всё сырьё: распаковку, твои тексты, манифест, брендбук LACELIKE, стратегию, карту болей и исследование рынка. Из этого выросло всё остальное.</div></div><span class="stage__status st-done">✓ готово</span></summary>
 <div class="stage__body">
-<h4>Что сделано</h4>
-<p>Из твоей распаковки, манифеста и постов собран профиль — фундамент, который каждый скилл читает первым: позиционирование «революционер в кружеве», твоя история, три сегмента аудитории, четыре столпа контента, границы (дети и семья — не публично) и твой голос с эталонными текстами.</p>
+<h4>Что мы про тебя знаем</h4>
+<div class="facts">
+  <div class="fact"><div class="fact__k">Кто</div><div class="fact__v">Маркетолог и продажи по образованию и опыту. Мамский блог в декрете и первые деньги онлайн, потом эзотерический блог, психология и коучинг, курсы и консультации, агентство личного брендинга. Бренд LACELIKE, проект «Революция», «революционерка в кружеве».</div></div>
+  <div class="fact"><div class="fact__k">Чем отличаешься</div><div class="fact__v">Блог с нуля с ИИ за 15 минут в день с телефона, с лицом или без. «Переводчик» с технического на простой женский. Формула: разрешение → инструмент → результат. Ты сама прошла путь из декрета с нуля.</div></div>
+  <div class="fact"><div class="fact__k">Кому</div><div class="fact__v">Женщина с навыком, которой нужны клиенты, а блога и системы нет. Сначала твоя среда: психологи, коучи, нутрициологи, тарологи, преподаватели. Потом мастера красоты, массажа, рукоделия. Две двери: «нет блога» и «блог есть, денег нет».</div></div>
+  <div class="fact"><div class="fact__k">Что продаёшь</div><div class="fact__v">Вход: бесплатная мини-распаковка. Услуга «Упаковка профиля под ключ за 7 дней»: 15 000 ₽ первым пяти, потом 25 000 ₽. Продукт «Первые клиенты из блога»: 3 недели, 7 уроков, тарифы 2 990 / 4 990 / 9 990 ₽. Цены пока гипотезы.</div></div>
+  <div class="fact"><div class="fact__k">Площадки и ритм</div><div class="fact__v">Инст для знакомства, Telegram как штаб, база вне площадки. Всё делается с телефона, 15 минут в день плюс час съёмки в выходной.</div></div>
+  <div class="fact"><div class="fact__k">Границы</div><div class="fact__v">Дети и семья не публично. Без гарантий дохода и «брось работу». Faceless как опция для тех, кто боится камеры, а не обещание денег без работы. Продаёшь только то, что сделала сама.</div></div>
+</div>
 <h4>Материалы этапа</h4>
-<div class="mat"><span class="mat__ico">MD</span><span class="mat__txt"><b>Твой профиль (PROFILE)</b> — кто ты, история, аудитория, столпы, границы, голос</span><a class="go" href="downloads/files/brand/PROFILE.md" download>скачать</a></div>
+<div class="mat"><span class="mat__ico">MD</span><span class="mat__txt"><b>Твой профиль (PROFILE)</b> — кто ты, история, аудитория, столпы, границы, голос. Фундамент для всех скиллов</span><a class="go" href="downloads/files/brand/PROFILE.md" download>скачать</a></div>
 <div class="mat"><span class="mat__ico">MD</span><span class="mat__txt"><b>Твой голос (TOV)</b> — твои живые тексты как эталон интонации</span><a class="go" href="downloads/files/brand/TOV-SAMPLES.md" download>скачать</a></div>
+<div class="mat"><span class="mat__ico">PDF</span><span class="mat__txt"><b>Брендбук LACELIKE v16</b> — твоя эстетика, имена, архетип</span><a class="go" href="downloads/sources/brandbook-lacelike-v16.pdf" download>скачать</a></div>
+<div class="mat"><span class="mat__ico">DOCX</span><span class="mat__txt"><b>Стратегия v20</b> — твоя внутренняя стратегия от 11.10: роль исследователя, стадии женщины, цикл проверки</span><a class="go" href="downloads/sources/strategiya-lacelike-v20.docx" download>скачать</a></div>
+<div class="mat"><span class="mat__ico">DOCX</span><span class="mat__txt"><b>Исследование рынка от 07.10</b> — 18 конкурентных предложений с ценами (карта конкурентов, не доказательство спроса)</span><a class="go" href="downloads/sources/issledovanie-rynka-lacelike-07-10.docx" download>скачать</a></div>
+<div class="mat"><span class="mat__ico">DOCX</span><span class="mat__txt"><b>Карта болей аудитории</b></span><a class="go" href="downloads/sources/karta-boley.docx" download>скачать</a></div>
 </div>
 </details>
 
 <!-- ЭТАП 1 -->
 <details class="stage">
-<summary><span class="stage__num">1</span><div class="stage__head"><div class="stage__title">Установка: Claude и твои скиллы</div><div class="stage__sub">Поставили Claude и пакет скиллов, настроенных под тебя: сценарии, посты, дизайн, воронка, парсер.</div></div><span class="stage__status st-done">✓ готово</span></summary>
+<summary><span class="stage__num">1</span><div class="stage__head"><div class="stage__title">Установка: Claude и твои скиллы</div><div class="stage__sub">Пакет скиллов, настроенных под тебя: сценарии, посты, дизайн, воронка, парсер. Одна фраза, и рабочее место стоит.</div></div><span class="stage__status st-done">✓ готово</span></summary>
 <div class="stage__body">
 <h4>Что сделано</h4>
-<p>У тебя стоит рабочее место: 16 скиллов под каждый этап блога, твой профиль и палитра вшиты в каждый, установка и обновление — одной фразой.</p>
+<p>Собрано рабочее место: 16 скиллов под каждый этап блога, твой профиль и палитра вшиты в каждый, установка и обновление одной фразой. Пока ты без компьютера, скиллы ждут: всё, что нужно для этапа 2, делается с телефона.</p>
 <h4>Материалы этапа</h4>
 <div class="mat"><span class="mat__ico">WEB</span><span class="mat__txt"><b>Гайд по установке</b> — как поставить Claude и скиллы, полный список с фразами, починка</span><a class="go" href="setup.html">открыть</a></div>
 <div class="mat"><span class="mat__ico">ZIP</span><span class="mat__txt"><b>Полный пакет</b> — все скиллы и материалы одним архивом</span><a class="go" href="downloads/olesya-full-package.zip" download>скачать</a></div>
@@ -99,48 +111,50 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; back
 
 <!-- ЭТАП 2 -->
 <details class="stage" open>
-<summary><span class="stage__num">2</span><div class="stage__head"><div class="stage__title">Упаковка блога</div><div class="stage__sub">Имя и шапка в трёх вариантах, аватар, шесть актуальных со сценариями, три закрепа, девять постов на раскрытие, Telegram-канал.</div></div><span class="stage__status st-now">● сейчас</span></summary>
+<summary><span class="stage__num">2</span><div class="stage__head"><div class="stage__title">Аудитория и оффер</div><div class="stage__sub">Проверка твоей стратегии по цифрам рынка, две двери, боли и страхи её словами, позиционирование «клиенты из блога», продукт и услуга, план проверки анкетой.</div></div><span class="stage__status st-now">● сейчас</span></summary>
 <div class="stage__body">
 <h4>Что внутри</h4>
-<p>Всё для полной упаковки аккаунта на отдельной странице: варианты имени и шапки (выбираем на созвоне), планы всех шести актуальных по сторис, закрепы, темы первых постов, оформление канала и список того, чего в упаковке быть не должно. Задача недели — упаковать аккаунт полностью.</p>
+<p>Документ от твоего лица, версия 2 от 14.10. Раздел «Проверка на прочность» показывает, что из стратегии рынок покупает, а что нет. Дальше две двери, 20 монологов болей, страхи, последствия, «чего хотят вместо», ложные решения, возражения, лучшие решения по болям, позиционирование в трёх форматах, продукт «Первые клиенты из блога» по методологии «топ-боли → уроки → бонусы → тарифы» и услуга «Упаковка под ключ» как деньги в этом месяце.</p>
 <h4>Материалы этапа</h4>
-<div class="mat"><span class="mat__ico">WEB</span><span class="mat__txt"><b>Конспект созвона 29.09</b> — новое позиционирование «исследователь с нуля», Codex + GitHub, задания недели</span><a class="go" href="konspekt-29-09.html">открыть</a></div>
-<div class="mat"><span class="mat__ico">PDF</span><span class="mat__txt"><b>Тот же конспект файлом</b></span><a class="go" href="downloads/pdf/olesya-konspekt-29-09.pdf" download>скачать PDF</a></div>
-<div class="mat"><span class="mat__ico">WEB</span><span class="mat__txt"><b>Страница «Упаковка блога»</b> — шапки, актуальные, закрепы, посты, канал, домашка</span><a class="go" href="packaging-stage.html">открыть</a></div>
-<div class="mat"><span class="mat__ico">MD</span><span class="mat__txt"><b>План упаковки файлом</b> — та же упаковка для работы в Claude</span><a class="go" href="downloads/files/content/profile-packaging.md" download>скачать</a></div>
-<div class="mat"><span class="mat__ico">MD</span><span class="mat__txt"><b>30 тем постов</b> — банк тем: личные, экспертные, дискуссионные</span><a class="go" href="downloads/files/content/tg-post-ideas.md" download>скачать</a></div>
-<div class="hw"><strong>Домашка недели:</strong> оформить имя, шапку и аватар · снять актуальные 1–5 (<b>/stories</b> по планам) · записать и закрепить два reels и карусель · оформить Telegram-канал · выложить первые 3 поста (<b>/tg-posts</b>) · прислать скрин профиля за день до созвона.</div>
+<div class="mat"><span class="mat__ico">WEB</span><span class="mat__txt"><b>Анализ аудитории и оффер, версия 2</b> — весь документ, разделы раскрываются кнопками</span><a class="go" href="analiz-ca.html">открыть</a></div>
+<div class="mat"><span class="mat__ico">WEB</span><span class="mat__txt"><b>Проверка на прочность</b> — раздел 00: что из стратегии не выдержит рынка и почему</span><a class="go" href="analiz-ca.html#s00">открыть</a></div>
+<div class="mat"><span class="mat__ico">WEB</span><span class="mat__txt"><b>Позиционирование и шапка</b> — раздел 10</span><a class="go" href="analiz-ca.html#s10">открыть</a></div>
+<div class="mat"><span class="mat__ico">WEB</span><span class="mat__txt"><b>Продукт «Первые клиенты из блога»</b> — раздел 11: уроки, бонусы, тарифы</span><a class="go" href="analiz-ca.html#s11">открыть</a></div>
+<div class="mat"><span class="mat__ico">WEB</span><span class="mat__txt"><b>Деньги в этом месяце и план проверки</b> — раздел 12: услуга «Упаковка под ключ»</span><a class="go" href="analiz-ca.html#s12">открыть</a></div>
+<div class="hw"><strong>Домашка недели:</strong> дочитать анализ и отметить, какие слова твои, а какие нет · выбрать, с чего начинаем: услуга «Упаковка под ключ» или продукт · добавить в анкету вопрос «есть ли у тебя услуга и за какой результат заплатишь первым» · написать 20 экспертам и мастерам из подписчиц с предложением бесплатной мини-распаковки · прислать Майе результаты анкеты за день до созвона.</div>
 </div>
 </details>
 
 <!-- ЭТАП 3 -->
 <details class="stage">
-<summary><span class="stage__num">3</span><div class="stage__head"><div class="stage__title">Продукт и воронка</div><div class="stage__sub">Интенсив «Блог с нуля»: оффер, программа 5 дней, наполнение сайта, текст урока для суфлёра, дожимные сообщения.</div></div><span class="stage__status st-now">● сейчас</span></summary>
+<summary><span class="stage__num">3</span><div class="stage__head"><div class="stage__title">Продукт и воронка</div><div class="stage__sub">Оффер, страница услуги и продукта, мини-распаковка как вход, предзапись на 20 мест, текст продающего урока.</div></div><span class="stage__status st-next">· дальше</span></summary>
 <div class="stage__body">
-<h4>Что внутри</h4>
-<p>Продукт зафиксирован через формулировку «блог с нуля»: интенсив «Блог с нуля: проявись и заработай», 5 дней, с ИИ, с лицом или без. На странице этапа — всё: оффер и для кого, программа пяти дней с результатом каждого дня, полный состав, наполнение сайта блок за блоком, готовый текст продающего урока для суфлёра (~20 минут, 8 блоков) и дожимные сообщения для Telegram. Вход воронки — гайд «Разреши себе быть богатой».</p>
-<h4>Материалы этапа</h4>
-<div class="mat"><span class="mat__ico">WEB</span><span class="mat__txt"><b>Страница этапа «Продукт и воронка»</b> — оффер, программа, сайт, суфлёр целиком, дожим</span><a class="go" href="product-stage.html">открыть</a></div>
-<div class="mat"><span class="mat__ico">WEB</span><span class="mat__txt"><b>Анализ аудитории и оффер, версия 2</b> — проверка стратегии на прочность по рынку 2026, две двери, боли и страхи её словами, позиционирование «клиенты из блога», продукт «Первые клиенты из блога» (7 уроков, 10 бонусов, 3 тарифа), услуга «Упаковка под ключ» как деньги в этом месяце, план проверки анкетой · 14.10.2026</span><a class="go" href="analiz-ca.html">открыть</a></div>
-<div class="mat"><span class="mat__ico">MD</span><span class="mat__txt"><b>Офферы и трипваер</b> — три варианта основного продукта с разбором, гипотезы трипваеров, лестница</span><a class="go" href="downloads/files/content/offers-and-tripwire.md" download>скачать</a></div>
-<div class="mat"><span class="mat__ico">MD</span><span class="mat__txt"><b>Исследование аудитории</b> — боли, желания, язык, триггеры покупки</span><a class="go" href="downloads/files/content/ca-analysis-olesya.md" download>скачать</a></div>
+<h4>Что будет</h4>
+<p>Когда выбраны формулировки и первый шаг, собираем: страницу услуги «Упаковка под ключ», предзапись на продукт, запись уроков 1–2 и продающий урок под суфлёр. Делают скиллы <b>/offer</b>, <b>/selling-lesson</b>, <b>/dozhim</b>.</p>
+<h4>Первая версия, сделана до анализа</h4>
+<p class="old">Материалы ниже собраны в сентябре под интенсив «Блог с нуля: проявись и заработай». После версии 2 анализа продукт пересобирается под оффер «клиенты из блога». Структура сайта, урока и дожима пригодится, формулировки обновим.</p>
+<div class="mat old"><span class="mat__ico">WEB</span><span class="mat__txt"><b>Страница «Продукт и воронка», первая версия</b> — оффер, программа 5 дней, сайт, суфлёр, дожим</span><a class="go" href="product-stage.html">открыть</a></div>
+<div class="mat old"><span class="mat__ico">MD</span><span class="mat__txt"><b>Офферы и трипваер, первая версия</b></span><a class="go" href="downloads/files/content/offers-and-tripwire.md" download>скачать</a></div>
 </div>
 </details>
 
 <!-- ЭТАП 4 -->
 <details class="stage">
-<summary><span class="stage__num">4</span><div class="stage__head"><div class="stage__title">Контент-машина</div><div class="stage__sub">Парсер, готовые сценарии reels в воронку, карусели, ритм «1 ролик в день, съёмка раз в неделю».</div></div><span class="stage__status st-next">· дальше</span></summary>
+<summary><span class="stage__num">4</span><div class="stage__head"><div class="stage__title">Упаковка блога и контент-машина</div><div class="stage__sub">Шапка и актуальные под новый оффер, Telegram-канал, парсер, сценарии reels в воронку, ритм «15 минут в день, съёмка раз в неделю».</div></div><span class="stage__status st-next">· дальше</span></summary>
 <div class="stage__body">
 <h4>Что будет</h4>
-<p>Запускаем продвижение: парсер находит залётные ролики конкурентов, Claude превращает отмеченное в твои сценарии и карусели, съёмка батчем раз в неделю через суфлёр. К этапу уже готовы банк идей и гайд по парсеру.</p>
+<p>Упаковываем твой аккаунт по той же схеме, которую ты будешь продавать клиенткам: шапка с результатом, актуальные, закрепы, первые посты. Потом продвижение: парсер находит, что работает у конкурентов, Claude превращает это в твои сценарии и посты, съёмка батчем раз в неделю.</p>
 <h4>Что уже готово к этому этапу</h4>
-<div class="mat"><span class="mat__ico">MD</span><span class="mat__txt"><b>Банк 35 идей reels</b> по твоим четырём столпам</span><a class="go" href="downloads/files/content/reels-ideas.md" download>скачать</a></div>
+<div class="mat"><span class="mat__ico">WEB</span><span class="mat__txt"><b>Конспект созвона 29.09</b> — Codex + GitHub, задания недели</span><a class="go" href="konspekt-29-09.html">открыть</a></div>
+<div class="mat old"><span class="mat__ico">WEB</span><span class="mat__txt"><b>Страница «Упаковка блога», первая версия</b> — шапки, актуальные, закрепы, посты, канал. Формулировки шапки обновим под «клиенты из блога»</span><a class="go" href="packaging-stage.html">открыть</a></div>
+<div class="mat"><span class="mat__ico">MD</span><span class="mat__txt"><b>30 тем постов</b> — личные, экспертные, дискуссионные</span><a class="go" href="downloads/files/content/tg-post-ideas.md" download>скачать</a></div>
+<div class="mat"><span class="mat__ico">MD</span><span class="mat__txt"><b>Банк 35 идей reels</b> по твоим столпам</span><a class="go" href="downloads/files/content/reels-ideas.md" download>скачать</a></div>
 <div class="mat"><span class="mat__ico">MD</span><span class="mat__txt"><b>Гайд по парсеру</b> — установка и правила</span><a class="go" href="downloads/files/parser/PARSER-GUIDE.md" download>скачать</a></div>
 </div>
 </details>
 
 <div class="btn-row">
-  <a class="btn btn--primary" href="packaging-stage.html">К текущему этапу</a>
+  <a class="btn btn--primary" href="analiz-ca.html">К текущему этапу</a>
   <a class="btn" href="downloads/olesya-full-package.zip" download>Весь пакет (zip)</a>
   <a class="btn" href="setup.html">Гайд по установке</a>
 </div>
