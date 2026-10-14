@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Олеся · Анализ аудитории и продукт</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700;800&family=DM+Sans:ital@1&display=swap" rel="stylesheet">
+<style>
+
+.hand{font-family:'Libre Baskerville',serif;font-style:italic;font-weight:400;font-style:normal;color:var(--bordo);text-transform:none;letter-spacing:0;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html,body{overflow-x:hidden;max-width:100%;}
+:root{--milk:#FAF7F3;--ink:#2A211C;--body:#5E534C;--soft:#9A908A;--bordo:#7B5A43;--hair:#E9E3DC;--wash:#F1ECE6;--accent:#7B5A43;}
+body{font-family:'Inter',sans-serif;background:var(--milk);color:var(--body);font-size:16.5px;line-height:1.8;-webkit-font-smoothing:antialiased;}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:22px 48px;border-bottom:1px solid var(--hair);position:sticky;top:0;background:rgba(253,252,249,.94);backdrop-filter:blur(6px);z-index:100;}
+.nav__logo{display:flex;align-items:center;gap:14px;text-decoration:none;}
+.nav__logo img{height:28px;width:auto;}
+.nav__brand{font-family:'Libre Baskerville',serif;font-weight:700;font-size:17px;color:var(--ink);}
+.nav__logo-name{font-family:'DM Sans',sans-serif;font-style:italic;font-size:14px;color:var(--soft);}
+.container{max-width:860px;margin:0 auto;padding:0 28px;}
+
+.hero{padding:84px 0 72px;position:relative;text-align:center;}
+.hero-glow{position:absolute;width:520px;height:520px;left:50%;top:-120px;margin-left:-260px;border-radius:50%;background:radial-gradient(circle at 40% 40%,#F6D9C2,#F2C4B4 45%,rgba(253,252,249,0) 72%);filter:blur(40px);opacity:.55;z-index:0;pointer-events:none;}
+.hero>*:not(.hero-glow){position:relative;z-index:1;}
+.badge{display:inline-block;font-size:11.5px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--bordo);margin-bottom:22px;}
+.hero h1{font-family:'Libre Baskerville',serif;font-weight:700;font-size:40px;line-height:1.3;color:var(--ink);text-transform:uppercase;letter-spacing:.035em;margin:0 auto 24px;max-width:18ch;}
+.hero h1 em{font-style:italic;color:var(--bordo);text-transform:none;letter-spacing:0;}
+.hero h1 .hand{font-size:1.45em;line-height:.9;}
+.hero__desc{font-size:17px;color:var(--body);max-width:56ch;margin:0 auto;}
+.hero__meta{font-family:'DM Sans',sans-serif;font-style:italic;font-size:13.5px;color:var(--soft);margin-top:22px;letter-spacing:.5px;}
+
+.intro-bold{font-family:'Libre Baskerville',serif;font-style:italic;font-size:20px;line-height:1.65;color:var(--ink);text-align:center;max-width:640px;margin:0 auto;padding:10px 0 18px;}
+.intro-text{font-size:15.5px;color:var(--body);max-width:640px;margin:0 auto;text-align:center;padding-bottom:56px;}
+
+.toc{max-width:640px;margin:0 auto 24px;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:22px 0;}
+.toc__title{font-size:11.5px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--bordo);margin-bottom:12px;text-align:center;}
+.toc a{display:flex;gap:16px;align-items:baseline;color:var(--ink);text-decoration:none;font-size:15px;padding:9px 0;border-bottom:1px solid var(--hair);}
+.toc a:last-child{border-bottom:none;}
+.toc a:hover{color:var(--bordo);}
+.toc a span{font-family:'Libre Baskerville',serif;font-style:italic;color:var(--bordo);min-width:34px;}
+
+.section-heading{font-family:'Libre Baskerville',serif;font-weight:700;font-size:27px;line-height:1.42;color:var(--ink);text-align:center;text-transform:uppercase;letter-spacing:.04em;padding:88px 0 40px;border-top:1px solid var(--hair);margin-top:40px;position:relative;}
+.section-heading span{display:block;font-family:'Libre Baskerville',serif;font-style:italic;font-weight:400;font-size:15px;letter-spacing:3px;color:var(--bordo);margin:0 0 14px;text-transform:uppercase;}
+.section-heading em{font-style:italic;color:var(--bordo);text-transform:none;letter-spacing:0;}
+
+.sub-heading{font-family:'Libre Baskerville',serif;font-weight:700;font-size:18.5px;line-height:1.5;color:var(--ink);text-transform:uppercase;letter-spacing:.045em;padding:48px 0 14px;}
+.mini-heading{font-family:'Libre Baskerville',serif;font-style:italic;font-size:16.5px;color:var(--bordo);padding:26px 0 8px;}
+.text{font-size:15.5px;color:var(--body);margin-bottom:16px;}
+.text strong{color:var(--ink);font-weight:600;}
+
+details.fold{border-top:1px solid var(--hair);}
+details.fold:last-of-type{border-bottom:1px solid var(--hair);}
+details.fold>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;}
+details.fold>summary::-webkit-details-marker{display:none;}
+details.fold>summary .sub-heading{padding:0;}
+details.fold>summary .fold-hint{font-family:'DM Sans',sans-serif;font-style:italic;font-size:13px;color:var(--soft);white-space:nowrap;}
+details.fold>summary::after{content:'+';font-family:'Libre Baskerville',serif;font-size:26px;color:var(--bordo);line-height:1;flex-shrink:0;}
+details.fold[open]>summary::after{content:'–';}
+details.fold>.fold-body{padding:4px 0 36px;}
+
+.highlight{background:var(--wash);padding:26px 30px;margin:28px 0;font-size:15.5px;line-height:1.8;color:var(--body);border-left:none;}
+.highlight strong{color:var(--ink);font-weight:600;}
+
+.quote{position:relative;padding:28px 0 28px 0;margin:0;border-bottom:1px solid var(--hair);font-family:'Inter',sans-serif;font-size:15px;line-height:1.85;color:var(--body);background:none;}
+.quote:last-child{border-bottom:none;}
+.quote-label{display:block;font-family:'Libre Baskerville',serif;font-style:normal;font-weight:700;font-size:16px;color:var(--ink);margin-bottom:10px;line-height:1.5;}
+.quote-label span{font-style:italic;font-weight:400;color:var(--bordo);margin-right:10px;}
+.quote-label+*{display:inline;}
+
+.scenario-card{border:1px solid var(--hair);padding:30px 34px;margin:18px 0;background:transparent;position:relative;transition:border-color .25s;}
+.scenario-card:hover{border-color:var(--bordo);}
+.scenario-card__num{font-family:'Libre Baskerville',serif;font-style:italic;font-size:13px;letter-spacing:2px;color:var(--bordo);margin-bottom:8px;text-transform:uppercase;}
+.scenario-card__title{font-family:'Libre Baskerville',serif;font-weight:700;font-size:18px;line-height:1.45;color:var(--ink);margin-bottom:18px;}
+.scenario-card__point{margin-bottom:12px;font-size:15px;line-height:1.75;}
+.scenario-card__point-label{font-family:'Libre Baskerville',serif;font-style:italic;font-size:15px;color:var(--bordo);margin-right:6px;}
+.scenario-card__point-text{color:var(--body);}
+.scenario-card__ending{font-family:'Libre Baskerville',serif;font-size:16px;font-style:italic;color:var(--ink);padding-top:16px;margin-top:16px;border-top:1px solid var(--hair);}
+.scenario-card__tip{background:var(--wash);padding:14px 18px;margin-top:16px;font-size:14px;color:var(--body);line-height:1.7;}
+.scenario-card__tip strong{color:var(--bordo);font-weight:600;}
+
+.guide-list{list-style:none;margin:10px 0 24px;}
+.guide-list li{font-size:15.5px;line-height:1.8;color:var(--body);padding:12px 0 12px 28px;position:relative;border-bottom:1px solid var(--hair);}
+.guide-list li:first-child{border-top:1px solid var(--hair);}
+.guide-list li::before{content:'◆';position:absolute;left:4px;top:16px;font-size:8px;color:var(--bordo);}
+.guide-list li strong{color:var(--ink);font-weight:600;}
+.sources li{font-size:14px;}
+.sources a{color:var(--body);}
+
+.headline-list{list-style:none;margin:10px 0 28px;}
+.headline-list li{display:flex;gap:20px;padding:18px 0;border-bottom:1px solid var(--hair);align-items:baseline;}
+.headline-list li:first-child{border-top:1px solid var(--hair);}
+.headline-num{font-family:'Libre Baskerville',serif;font-style:italic;font-size:16px;color:var(--bordo);min-width:34px;flex-shrink:0;}
+.headline-text{font-family:'Libre Baskerville',serif;font-size:16.5px;line-height:1.6;color:var(--ink);font-weight:700;}
+.headline-text small{display:block;font-family:'Inter',sans-serif;font-size:14.5px;color:var(--body);font-weight:400;margin-top:6px;line-height:1.7;}
+
+.prompt-box{border:1px solid var(--bordo);outline:1px solid var(--bordo);outline-offset:5px;padding:36px 40px;margin:36px 6px;background:var(--milk);}
+.prompt-box__title{font-family:'Libre Baskerville',serif;font-weight:700;font-size:19px;line-height:1.45;color:var(--ink);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px;}
+.prompt-box__subtitle{font-family:'DM Sans',sans-serif;font-style:italic;font-size:13px;color:var(--soft);margin-bottom:18px;}
+.prompt-box__text{font-size:15.5px;line-height:1.85;color:var(--body);}
+
+.table-wrap{overflow-x:auto;margin:16px 0 32px;}
+table{width:100%;border-collapse:collapse;font-size:14.5px;}
+th,td{text-align:left;padding:14px 14px;border-bottom:1px solid var(--hair);vertical-align:top;line-height:1.65;}
+th{font-family:'Libre Baskerville',serif;font-style:italic;font-weight:400;font-size:14px;color:var(--bordo);border-bottom:1px solid var(--bordo);background:none;text-transform:none;letter-spacing:0;}
+td{color:var(--body);}
+td strong{color:var(--ink);font-weight:600;}
+tr:hover td{background:var(--wash);}
+
+.band p{max-width:56ch;margin:0 auto;font-size:15.5px;line-height:1.8;}
+
+.final{max-width:660px;margin:96px auto 0;border:1px solid var(--bordo);outline:1px solid var(--bordo);outline-offset:5px;padding:52px 48px;text-align:center;}
+.final__lead{font-size:11.5px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--bordo);margin-bottom:16px;}
+.final__title{font-family:'Libre Baskerville',serif;font-weight:700;font-size:24px;line-height:1.5;color:var(--ink);text-transform:uppercase;letter-spacing:.05em;margin-bottom:18px;}
+.final__title .hand{font-size:1.3em;line-height:1;}
+.final__text{font-size:15.5px;line-height:1.85;color:var(--body);}
+.footer-note{font-family:'Libre Baskerville',serif;font-size:17px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);text-align:center;padding:64px 24px 0;}
+.footer-note em{font-style:italic;color:var(--bordo);text-transform:none;letter-spacing:0;}
+.footer{text-align:center;padding:40px 24px 64px;color:var(--soft);font-size:12.5px;line-height:2;}
+.footer .tiny{font-size:12.5px;color:var(--soft);max-width:52ch;margin:0 auto;}
+
+@media screen and (max-width:768px){
+  .nav{padding:16px 20px;}
+  .nav__brand{display:none;}
+  .hero{padding:56px 0 48px;}
+  .hero h1{font-size:28px;}
+  .section-heading{font-size:21px;padding:64px 0 30px;}
+  .sub-heading{font-size:16px;}
+  .scenario-card{padding:22px 20px;}
+  .prompt-box{padding:26px 22px;}
+  th,td{padding:10px 8px;font-size:13.5px;}
+  .band{padding:56px 22px;}
+  details.fold>summary .fold-hint{display:none;}
+}
+</style>html,body{overflow-x:hidden;max-width:100%;}
+.hero{overflow:hidden;}
+table td,table th{word-break:break-word;overflow-wrap:anywhere;}
+@media screen and (max-width:768px){
+  .table-wrap{overflow:visible;}
+  table,table tbody,table tr,table td{display:block;width:100%;}
+  table tr.thead-row{display:none;}
+  table tr{border:1px solid var(--hair);margin:0 0 12px;background:#fff;}
+  table td{padding:9px 12px;border:none;border-bottom:1px solid var(--hair);}
+  table td:last-child{border-bottom:none;}
+  table td[data-label]:before{content:attr(data-label);display:block;font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--soft);margin-bottom:3px;}
+  .prompt-box__title{font-size:16px;letter-spacing:.02em;}
+}
+</style>
+</head><body>
+<nav class="nav">
+  <a href="index.html" class="nav__logo"><span class="nav__brand">Олеся · LACELIKE</span></a>
+  <span class="nav__logo-name">анализ аудитории и продукт · октябрь 2026</span>
+</nav>
+
+<div class="container">
+
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="badge">Исследование · внутренний документ</div>
+  <h1>Моя аудитория: <span class="hand">две двери</span>, её боли, страхи и продукт, с которого начинается «Революция»</h1>
+  <p class="hero__desc">Рабочий документ проекта «Революция». Кто моя женщина, что у неё болит на самом деле, чего она боится по вечерам, как она уже пыталась это решить, что скажет мне перед покупкой, и какой первый продукт собираем по методологии «топ-боли → уроки → бонусы → тарифы».</p>
+  <p class="hero__meta">октябрь 2026 · собрано из моего исследования рынка (07.10), стратегии v20 (11.10), распаковки и карты болей · гипотезы до результатов анкеты</p>
+</section>
+
+<p class="intro-bold">Моя позиция из стратегии: я исследователь, а не учитель. Поэтому всё, что ниже, это гипотезы, собранные из моей жизни, моего исследования 18 конкурентных предложений и проверенных фактов о рынке. Они станут фактами только после анкеты, разговоров и первых оплат.</p>
+<p class="intro-text">У меня уже запущена анкета для подписчиц, и это правильный ход: продукт без подтверждённого спроса это моя целеустремлённость, а не бизнес. Этот документ собирает всё в одну систему, чтобы на созвоне с Майей принять три решения: какой сегмент берём первым, какое позиционирование ставим в шапку и какой продукт собираем и проверяем до конца октября.</p>
+
+<div class="toc">
+  <div class="toc__title">Содержание</div>
+  <a href="#s01"><span>01.</span>Что сейчас происходит на рынке</a>
+  <a href="#s02"><span>02.</span>Моя женщина: две двери, шесть стадий, кого не беру</a>
+  <a href="#s03"><span>03.</span>Дверь 1: «Я начинаю» — боли, страхи, последствия</a>
+  <a href="#s04"><span>04.</span>Дверь 2: «Проявляюсь, но не монетизируюсь»</a>
+  <a href="#s05"><span>05.</span>Общее: тайные желания, триггеры, главная эмоция</a>
+  <a href="#s06"><span>06.</span>Чего они хотят вместо и точка Б</a>
+  <a href="#s07"><span>07.</span>Как они решают это сами, и почему становится хуже</a>
+  <a href="#s08"><span>08.</span>Возражения: что говорит и что думает</a>
+  <a href="#s09"><span>09.</span>Моё место на рынке и лучшие решения по болям</a>
+  <a href="#s10"><span>10.</span>Позиционирование</a>
+  <a href="#s11"><span>11.</span>Продукт по методологии: топ-боли → уроки → бонусы → тарифы</a>
+  <a href="#s12"><span>12.</span>Что проверить до записи и как</a>
+  <a href="#s13"><span>13.</span>Источники</a>
+</div>
+
+<!-- ============ 01 ============ -->
+<h2 class="section-heading" id="s01"><span>01</span>Что сейчас происходит <em>на рынке</em></h2>
+
+<p class="text">Коротко, потому что большое исследование у меня уже есть отдельным файлом. Здесь то, что влияет на решения.</p>
+
+<h3 class="sub-heading">Площадки и правила</h3>
+<ul class="guide-list">
+  <li><strong>Инст.</strong> Реклама и самореклама запрещены с 1 сентября 2025, призывы к покупке и ссылки на оплату это серая зона, первые штрафы блогерам уже выписаны. Аудитория через VPN 20–30 млн в месяц: люди там есть, продажи «в лоб» в сторис больше нет. Для меня это аргумент за связку «инст для знакомства, Telegram как штаб», которую я уже приняла в стратегии v20.</li>
+  <li><strong>Telegram.</strong> С февраля 2026 замедление, весной у части провайдеров доходило до блокировки, работает нестабильно до сих пор. Вывод: база (анкеты, контакты, чек-листы за почту) дороже подписчиков. Моя анкета это уже начало базы.</li>
+  <li><strong>Белые списки.</strong> При отключениях мобильного интернета инсты и Telegram нет в белых списках. Путь к покупке должен быть коротким и с несколькими входами.</li>
+  <li><strong>Обещания дохода становятся юридическим риском.</strong> В Думе обсуждают регулирование курсов и запрет необоснованных гарантий. Моё правило «не обучаю тому, что не прожила» из этики превращается в конкурентное преимущество.</li>
+</ul>
+
+<h3 class="sub-heading">Деньги и спрос</h3>
+<ul class="guide-list">
+  <li>63% блогеров зарабатывают до 250 тысяч в месяц, реклама для микроблогера мертва: до 10.000 подписчиков это 5–15 тысяч бартером. Единственные деньги маленького блога это свой продукт или услуга.</li>
+  <li>Выручка инфобиза падает, средний чек падает, покупательница «считает деньги и требует конкретики». Кладбище купленных курсов это теперь не только боль аудитории, это фильтр: длинные программы без быстрого результата не покупают.</li>
+  <li><strong>Из моего исследования 18 предложений:</strong> рынок перенасыщен продуктами «поиск себя», «уверенность» и «упаковка бренда» за 6–50 тысяч. Почти никто не доводит до проверки реальностью: выбранное направление → предложение → реальные отклики → первые деньги. Это и есть щель, в которую встаёт «Революция».</li>
+</ul>
+
+<h3 class="sub-heading">ИИ</h3>
+<ul class="guide-list">
+  <li>Контент стал бесплатным, внимание дефицитом. «Просто вести блог» обесценено, у контента должна быть функция.</li>
+  <li>Знания обесценились: ответить и объяснить может нейросеть. Остаётся то, что она не умеет: прожитый опыт, честность исследователя, доведение до действия, среда.</li>
+  <li>Для моей женщины ИИ это снятие барьера «нет времени и я не технарь»: 15 минут в день реальны, если рутину берёт инструмент. Я «переводчик с технического на простой женский», и это моё отличие.</li>
+</ul>
+
+<div class="highlight"><strong>Если коротко.</strong> Продавать «поиск себя» поздно, рынок завален. Продавать «ведение блога» поздно, блог сам по себе денег не приносит и юридически сжимается. Свободное место ровно там, где я и стою по стратегии: взять женщину с уже имеющимся опытом и довести её не до «осознаний», а до первого работающего обмена ценностью. С честной ролью исследователя вместо позы гуру.</div>
+
+<!-- ============ 02 ============ -->
+<h2 class="section-heading" id="s02"><span>02</span>Моя женщина: <em>две двери</em>, шесть стадий, кого не беру</h2>
+
+<p class="text">Ядро одно: умная, способная женщина, у которой разрыв между тем, сколько в ней есть, и тем, сколько стало её реальностью. Образование, профессия, дети, десятки обучений, идеи есть. Результата, который можно назвать своим, нет. Её фраза: «я устала быть очень перспективной женщиной, я хочу уже результат». Это не типы навсегда, это стадии одной женщины, поэтому делю не по возрасту, а по текущей задаче. Дверей в работу две.</p>
+
+<div class="scenario-card">
+  <div class="scenario-card__num">ДВЕРЬ 1</div>
+  <div class="scenario-card__title">«Я начинаю»: опыт и таланты есть, ничего не запущено</div>
+  <div class="scenario-card__point"><span class="scenario-card__point-label">Кто.</span> <span class="scenario-card__point-text">Женщина 25–40 в найме или в декрете. Профессия, курсы, руки, вкус, идеи. Своего дела и блога нет или блог заброшен. Стадии: «я на финансовом дне», «работаю, но мне тесно», «очень перспективная женщина», «после перелома» (развод, декрет, выгорание, переезд).</span></div>
+  <div class="scenario-card__point"><span class="scenario-card__point-label">Главная боль.</span> <span class="scenario-card__point-text">«Я знаю, что могу больше, но не понимаю, куда себя приложить». Самая тихая женская боль: знать, что в тебе есть больше, и годами не давать этому случиться.</span></div>
+  <div class="scenario-card__point"><span class="scenario-card__point-label">Почему сильный.</span> <span class="scenario-card__point-text">Самый массовый и самый мой: это я пять лет назад. Моя история (декрет, развод, опора только во мне, путь к свободе) бьёт ровно в неё. Вход в воронку и ядро контента здесь.</span></div>
+  <div class="scenario-card__point"><span class="scenario-card__point-label">Слабое место.</span> <span class="scenario-card__point-text">Платёжеспособность ниже, чем у двери 2, и выше риск «купила и не сделала». Поэтому продукт для неё должен быть коротким, с быстрым первым результатом и без обещаний дохода.</span></div>
+</div>
+
+<div class="scenario-card">
+  <div class="scenario-card__num">ДВЕРЬ 2</div>
+  <div class="scenario-card__title">«У меня уже есть дело или блог»: проявляюсь, но не монетизируюсь</div>
+  <div class="scenario-card__point"><span class="scenario-card__point-label">Кто.</span> <span class="scenario-card__point-text">Эксперт, специалист, мастер или блогерка с контентом без системы. Ведёт блог от 3 месяцев до 2 лет, или оказывает услуги по сарафану. Стадии: «проявляюсь, но не монетизируюсь» и «зарабатываю, но уменьшаю себя» (мало берёт, прячется, не растёт).</span></div>
+  <div class="scenario-card__point"><span class="scenario-card__point-label">Главная боль.</span> <span class="scenario-card__point-text">«Контент есть, а денег нет». «У меня столько опыта и курсов, а я не понимаю, за что мне могут хорошо платить».</span></div>
+  <div class="scenario-card__point"><span class="scenario-card__point-label">Почему сильный.</span> <span class="scenario-card__point-text">Ей нужна моя твёрдая часть: распаковка, позиционирование, воронки, цена, брендбук. Платит быстрее и больше. Мой опыт агентства личного брендинга и «гений по воронкам» здесь на месте.</span></div>
+  <div class="scenario-card__point"><span class="scenario-card__point-label">Слабое место.</span> <span class="scenario-card__point-text">Она сравнивает меня с десятками «наставниц по блогу». Отстройка: роль исследователя, честность про faceless (исследую, не обучаю), бренд-эстетика LACELIKE и проверка реальностью вместо «осознаний».</span></div>
+</div>
+
+<h3 class="sub-heading">Кого не беру, по крайней мере сейчас</h3>
+<ul class="guide-list">
+  <li><strong>«Хочу пассивный доход без проявления».</strong> Без голоса, ценности и предложения рынку денег не бывает. Faceless я исследую на себе и пока не продаю как метод, это зафиксировано в стратегии.</li>
+  <li><strong>«Почините мне жизнь».</strong> Терапевтический запрос без готовности действовать. Я не психолог, у меня путь через действие и проверку реальностью. Границу держу и в контенте: без обещаний исцеления.</li>
+  <li><strong>Охотницы за «секретной схемой заработка».</strong> Перегретый рынок «денег из воздуха» не мой. Моё обещание всегда про путь и первый обмен ценностью, не про «сотку за месяц».</li>
+</ul>
+
+<div class="highlight"><strong>Мост между дверями.</strong> Дверь 1 через несколько месяцев работы становится дверью 2: направление выбрано, первые деньги получены, теперь нужны упаковка, цена и система. Поэтому линейка строится лесенкой: мини-распаковка (вход) → основной продукт «первый работающий обмен ценностью» → личная работа и брендбук под заказ для двери 2. Одна женщина, один путь, три ступени.</div>
+
+<div class="table-wrap">
+<table>
+  <tr><th></th><th>Дверь 1 · «Я начинаю»</th><th>Дверь 2 · «Есть дело или блог»</th></tr>
+  <tr><td>Главный смысл</td><td><strong>Разрешение + первый шаг</strong></td><td><strong>Ценность + цена + система</strong></td></tr>
+  <tr><td>Сильнейшая боль</td><td>«Могу больше, не знаю куда»</td><td>«Контент есть, денег нет»</td></tr>
+  <tr><td>Главное возражение</td><td>«У меня дети, работа, нет времени»</td><td>«Чем ты отличаешься от наставниц»</td></tr>
+  <tr><td>Мой пруф</td><td>Моя история: декрет → свобода</td><td>Агентство брендинга, воронки, брендбук LACELIKE</td></tr>
+  <tr><td>Готовность платить</td><td>Низкий чек, быстрый результат</td><td>Средний и высокий чек</td></tr>
+  <tr><td>Как приходит</td><td>Из reels и анкеты</td><td>Из контента, по рекомендации, с мини-распаковки</td></tr>
+</table>
+</div>
+<!-- ============ 03 ============ -->
+<h2 class="section-heading" id="s03"><span>03</span>Дверь 1: <em>«Я начинаю»</em></h2>
+
+<details class="fold"><summary><h3 class="sub-heading">Боли по убыванию</h3><span class="fold-hint">10 монологов, раскрыть</span></summary><div class="fold-body">
+<p class="text">Монологи написаны так, как она рассказала бы близкой подруге. Часть формулировок дословно из моей стратегии и карты болей, порядок проверяю анкетой.</p>
+
+<div class="quote"><span class="quote-label"><span>1.</span>Могу больше, но не понимаю, куда себя приложить</span>«Знаешь, что самое противное? Я не дура. У меня образование, я на работе лучшая, я за что ни возьмусь, всё получается. И при этом я сижу вечером и не могу ответить на простейший вопрос: а что моё? У меня было столько идей... свечи, консультации, канал про еду, шитьё. Я в голове всё это прокручиваю годами. Годами, понимаешь? И ничего из этого не случилось. Мне кажется, я так и умру очень перспективной женщиной».</div>
+
+<div class="quote"><span class="quote-label"><span>2.</span>Столько опыта и курсов, а за что мне платить, непонятно</span>«У меня сертификатов целая папка. Я училась на таролога, на нутрициолога, маркетинг проходила, курс по текстам. Я реально много знаю. Но когда меня спрашивают «а чем ты можешь помочь», я зависаю. Мне кажется, то, что я умею, ничего особенного. Все же это могут. Вот у других какая-то одна тема, и они в ней звёзды. А у меня всего понемногу и ничего целиком».</div>
+
+<div class="quote"><span class="quote-label"><span>3.</span>Страшно показать и услышать тишину</span>«Пока всё в голове, можно верить, что это гениально. Я вот придумала идею, она мне ночами снится, я её уже всю выстроила. А выложить боюсь. Потому что выложу, и будет тишина. Ни лайков, ни заявок, ничего. И тогда окажется, что это не рынок не готов, а я... ну, обычная. Лучше я ещё поготовлюсь. Я уже два года готовлюсь».</div>
+
+<div class="quote"><span class="quote-label"><span>4.</span>Деньги хочу, но произнести это неловко</span>«Я хочу больше денег. Намного больше. Мне даже тебе это сказать неловко, представляешь? Как будто хотеть денег это что-то стыдное, я же мама, я же не для этого... А я хочу свои деньги. Не мужнины, не «на хозяйство». Свои. Чтобы я знала, что могу сама оплатить свою жизнь. И квартиру, и детям, и себе платье без вот этого «ну покажи, что купила»».</div>
+
+<div class="quote"><span class="quote-label"><span>5.</span>Дети, работа, и я вечно без сил</span>«У меня будильник в шесть, работа, потом дети, уроки, ужин, и к десяти вечера я овощ. Какой блог, какое своё дело? Я телефон беру, чтобы тупить, а не чтобы строить империю. И все эти «вставай в пять утра и работай над собой» идут лесом. Мне нужно что-то, что влезает в мою жизнь, а не требует новую жизнь».</div>
+
+<div class="quote"><span class="quote-label"><span>6.</span>Боюсь потерять то, что есть</span>«У меня зарплата. Небольшая, но стабильная. И я как представлю, что я что-то начну, вложусь, а оно не пойдёт... Мне же не двадцать лет, у меня дети. Я не могу позволить себе провалиться. Вот и получается: тесно, но безопасно. Я не хочу ещё десять лет работать там, где мне тесно, только потому что это безопасно. А сижу».</div>
+
+<div class="quote"><span class="quote-label"><span>7.</span>Кладбище курсов и стыд перед собой</span>«Я посчитала, сколько я потратила на обучения. Не скажу даже, стыдно. И картина одна и та же: загорелась, купила, первую неделю огонь, потом отстала, потом стыдно заходить в чат, потом перестала. И следующее покупаю, как будто в этот раз будет по-другому. У меня уже внутри голос: ну что, опять? Я не верю не курсам. Я себе не верю».</div>
+
+<div class="quote"><span class="quote-label"><span>8.</span>Что скажут близкие</span>«Мама скажет «займись лучше детьми». Муж поднимет бровь: «опять твои курсы?». Коллеги увидят сторис и будут обсуждать. Я заранее слышу все эти голоса, ещё ничего не сделав. Как будто мне нужно у всех разрешение. А кто, собственно, решил, что мне нельзя?»</div>
+
+<div class="quote"><span class="quote-label"><span>9.</span>Боюсь камеры и «кто я такая»</span>«Все говорят: веди блог, показывай себя. А я смотрю на себя на видео и всё, выключаю. Голос не мой, лицо не то, что говорить, непонятно. И сразу: кто я такая, чтобы чему-то учить? Вон сколько уже умных и красивых. Хотя внутри я знаю, что мне есть что сказать. Просто... не сейчас. Потом».</div>
+
+<div class="quote"><span class="quote-label"><span>10.</span>Нужны деньги, чтобы начать зарабатывать</span>«Я посмотрела: на нормальный старт надо вложиться. Техника, обучение, реклама, красивая съёмка. У меня этих денег нет. Значит, сначала накоплю, потом начну. Я так уже три года «сначала накоплю». По-моему, это ловушка, но где из неё выход, я не вижу».</div>
+</div></details>
+
+<details class="fold"><summary><h3 class="sub-heading">Страхи: о чём ураган мыслей по вечерам</h3><span class="fold-hint">8 монологов, раскрыть</span></summary><div class="fold-body">
+<div class="quote"><span class="quote-label"><span>1.</span>Через пять лет всё то же самое</span>«Самое страшное не провалиться. Самое страшное через пять лет понять, что я опять ничего не попробовала. Та же работа, тот же маршрут, только мне сорок пять, и уже совсем «поздно». Я от этой мысли просыпаюсь ночью».</div>
+<div class="quote"><span class="quote-label"><span>2.</span>Я проваливаюсь и все это видят</span>«Если я заявлю «у меня своё дело» и не получится, это увидят все. Мама, муж, коллеги. И каждый подумает своё «я же говорила». Провалиться тихо можно пережить. Провалиться публично я боюсь панически».</div>
+<div class="quote"><span class="quote-label"><span>3.</span>Я вложу последнее и потеряю</span>«У нас бюджет рассчитан до рубля. Если я вложу пятьдесят тысяч и они сгорят, это не абстракция, это кружки детей и отпуск. Я уже обжигалась, и теперь каждый раз, когда хочу купить обучение, у меня внутри сирена».</div>
+<div class="quote"><span class="quote-label"><span>4.</span>Я снова не доделаю</span>«Больше чужих курсов я боюсь себя. Куплю, заряжусь, брошу на третьей неделе. И это будет ещё одно доказательство, что я не довожу. Коллекционирую недоделанное».</div>
+<div class="quote"><span class="quote-label"><span>5.</span>Мой опыт никому не нужен</span>«Вдруг я упакую всё, что умею, выставлю, а рынок пожмёт плечами? Это самый тихий страх: не что меня осудят, а что меня не заметят вообще».</div>
+<div class="quote"><span class="quote-label"><span>6.</span>Я стану «инфоцыганкой»</span>«Я презирала всех этих продавцов марафонов. А теперь сама думаю про свой продукт, и внутри голос: ты что, станешь такой же? Мне важно, чтобы было честно. Я не умею продавать то, во что не верю, и боюсь, что без этого не продаётся».</div>
+<div class="quote"><span class="quote-label"><span>7.</span>Семья не выдержит</span>«Если я начну своё, у меня будет ещё меньше времени на детей. И я буду виновата всегда: на работе, что думаю о своём, дома, что сижу в телефоне. Я и так на пределе. Страшно, что я надорвусь, и крайней буду я».</div>
+<div class="quote"><span class="quote-label"><span>8.</span>Поздно</span>«Все эти девочки в ленте начали в двадцать два. У них энергия, нет детей, ипотеки. Мне кажется, мой поезд ушёл. Хотя когда я читаю про тех, кто начал в сорок, у меня каждый раз ком в горле: значит, можно. Но про себя я в это не верю».</div>
+</div></details>
+
+<details class="fold"><summary><h3 class="sub-heading">Последствия, если ничего не менять</h3><span class="fold-hint">раскрыть</span></summary><div class="fold-body">
+<p class="text">Без запугивания. Самое честное последствие: ничего не рухнет, просто разрыв между потенциалом и реальностью станет шире, а цена входа вырастет.</p>
+<ul class="guide-list">
+  <li><strong>Сейчас.</strong> Энергия уходит в прокручивание идей, а не в проверку. Каждый год «подготовки» добавляет стыда и съедает веру в себя. Кладбище курсов растёт, и каждая новая покупка работает хуже предыдущей, потому что покупается уже не знание, а анестезия.</li>
+  <li><strong>Через 2–3 года.</strong> Рынок уедет: контент обесценится окончательно, выживут те, у кого есть своя ценность, предложение и база. Женщины, которые начали проверять себя в 2026, к 2029 будут на три круга впереди, и догонять придётся не их, а собственное «я могла начать тогда». Зарплата в найме не вырастет на столько, на сколько вырастут цены.</li>
+  <li><strong>Эмоции.</strong> Фоновая тоска «живу не свою жизнь», вспышки зависти в ленте, усталость без результата. И главная: тихое предательство себя, которое не видно никому, кроме неё.</li>
+</ul>
+</div></details>
+
+<!-- ============ 04 ============ -->
+<h2 class="section-heading" id="s04"><span>04</span>Дверь 2: <em>«Проявляюсь, но не монетизируюсь»</em></h2>
+
+<details class="fold"><summary><h3 class="sub-heading">Боли по убыванию</h3><span class="fold-hint">10 монологов, раскрыть</span></summary><div class="fold-body">
+
+<div class="quote"><span class="quote-label"><span>1.</span>Контент есть, а денег нет</span>«Я веду блог почти два года. Я реально стараюсь: посты, сторис, эти бесконечные reels. Подписчиков прибавляется понемногу, комментируют, пишут «как ты классно говоришь». И знаешь, сколько я на этом заработала за два года? Тысяч тридцать. За два года! Я посчитала и чуть не заплакала. Это даже не зарплата за месяц. Получается, у меня хобби, которое жрёт всё моё время и ничего не даёт».</div>
+
+<div class="quote"><span class="quote-label"><span>2.</span>Не понимаю, за что мне могут хорошо платить</span>«Мне пишут в директ: «ты такая молодец». А купить никто ничего не покупает, потому что у меня, по сути, и купить нечего. Ну консультация, которую я стесняюсь предложить. Я умею кучу всего, но собрать из этого продукт с ценой... Я смотрю на свой опыт как на свалку: всё ценное, а что продавать, непонятно».</div>
+
+<div class="quote"><span class="quote-label"><span>3.</span>Назвать цену это будто наглость</span>«Когда меня спрашивают «сколько стоит», у меня внутри всё сжимается. Я называю цену и сразу: «ну можно и меньше, если что». Сама себе скидку делаю, представляешь? Подруга психолог берёт в три раза больше, и ей платят. А я боюсь, что скажут «за что тут платить-то»».</div>
+
+<div class="quote"><span class="quote-label"><span>4.</span>Постила в пустоту и выгорела</span>«Я делаю контент через силу. Раньше горела, сейчас сажусь снимать и тошно. Потому что я как будто в пустую комнату говорю. Триста просмотров, пять лайков. И все советы одинаковые: больше сторис, больше вовлечения. Я и так вся в этом телефоне живу, дети меня видят с кольцевой лампой чаще, чем без».</div>
+
+<div class="quote"><span class="quote-label"><span>5.</span>Воронки, прогревы... я в этом тону</span>«Мне говорят: тебе нужна воронка. Я читаю про эти воронки, лид-магниты, дожимы, и у меня глаза стеклянные. Я гуманитарий, я про людей, а не про схемы. Нанять некого, денег нет, а сама я в этом вязну. И от этого чувствую себя тупой, хотя я не тупая».</div>
+
+<div class="quote"><span class="quote-label"><span>6.</span>Сравниваю себя и руки опускаются</span>«Девочка пришла в нишу год назад. Год! У неё уже курс, поток, сторис из Дубая. Я смотрю и понимаю: она наглее. Она не умнее и не глубже, она просто разрешила себе продавать. А я сижу со своей глубиной и своими тремястами просмотров. И завидую. Стыдно, но завидую».</div>
+
+<div class="quote"><span class="quote-label"><span>7.</span>Продавать стыдно, «я же не такая»</span>«Как только я пишу продающий пост, мне кажется, все видят во мне торговку. Я же собирала аудиторию на искренности. И вот это «купи» звучит как предательство. Поэтому я продаю раз в три месяца, виновато и в последний момент. И удивляюсь, что не покупают».</div>
+
+<div class="quote"><span class="quote-label"><span>8.</span>Беру мало и уменьшаю себя</span>«У меня есть клиентки, и они довольны. Но я беру за работу столько, сколько брала три года назад. Поднять цену боюсь: уйдут. И получается, я расту в мастерстве, а в деньгах стою. Как будто я сама себе поставила потолок и охраняю его».</div>
+
+<div class="quote"><span class="quote-label"><span>9.</span>Нет системы, всё на ручном приводе</span>«Каждая продажа у меня это подвиг: лично списаться, объяснить, уговорить, выставить счёт, напомнить. Пока я в ресурсе, деньги есть. Заболела, уехала, выдохлась, и ноль. Я сама себе и товар, и касса, и курьер».</div>
+
+<div class="quote"><span class="quote-label"><span>10.</span>Боюсь, что площадку выключат</span>«Вся моя аудитория в инсте. Реклама там запрещена, телеграм глючит, и я каждый раз думаю: а если завтра всё? У меня даже списка контактов нет. Два года работы могут исчезнуть одной новостью».</div>
+</div></details>
+
+<details class="fold"><summary><h3 class="sub-heading">Страхи и последствия</h3><span class="fold-hint">раскрыть</span></summary><div class="fold-body">
+<ul class="guide-list">
+  <li><strong>«Я так и останусь блогером-бессребреницей».</strong> Ночной сценарий: ещё два года контента, ноль денег, и злость на себя уже не отмыть. Последствие, если не менять: выгорание добьёт блог раньше, чем придут деньги, и подтвердится «я не создана для этого».</li>
+  <li><strong>«Подниму цену, и все уйдут».</strong> Реальность: низкая цена собирает аудиторию, которая не может платить больше, и каждый год это закрепляет. Через два года поднимать цену будет ещё страшнее и дороже.</li>
+  <li><strong>«Начну продавать, и меня разлюбят».</strong> Последствие молчания: аудитория привыкает получать бесплатно, и первая же продажа ощущается как скандал. Чем дольше тянуть, тем больнее.</li>
+  <li><strong>«Я не потяну технику: воронки, боты, ИИ».</strong> Последствие: пока она боится инструментов, конкурентки делают в пять раз больше за то же время. Разрыв растёт не из-за таланта, а из-за рутины.</li>
+  <li><strong>«Всё, что я построила, живёт на чужой площадке».</strong> Последствие: один сбой, и два года работы недоступны. База вне платформы это уже не опция, а страховка жизни блога.</li>
+</ul>
+</div></details>
+
+<!-- ============ 05 ============ -->
+<h2 class="section-heading" id="s05"><span>05</span>Общее: <em>тайные желания</em>, триггеры, главная эмоция</h2>
+
+<h3 class="sub-heading">Тайные желания, общие для обеих дверей</h3>
+<ul class="guide-list">
+  <li><strong>Хочу признания, и мне надоело это скрывать.</strong> «Да, мне нравится быть заметной. Почему я должна делать вид, что всё равно?» Это желание у моей аудитории под тремя слоями «я не для славы».</li>
+  <li><strong>Хочу, чтобы меня выбрали.</strong> Чтобы написали «хочу к тебе», а не «а сколько стоит и почему так дорого». Покупка без унижения.</li>
+  <li><strong>Хочу разрешение.</strong> Не план и не схему, а чтобы кто-то, кто прошёл, сказал: тебе можно. Можно хотеть денег, можно быть яркой, можно начать неидеально. Это ядро моего бренда, и это то, что отличает меня от «наставниц по воронкам».</li>
+  <li><strong>Хочу свои деньги как свободу выбирать.</strong> Мужчину, потому что люблю. Работу, потому что интересно. Город, потому что хочу там жить. Деньги здесь не цель, а право на выбор.</li>
+  <li><strong>Хочу перестать себя предавать.</strong> Самая глубокая. Не «стать успешной», а перестать каждый вечер знать, что опять не дала себе случиться.</li>
+</ul>
+
+<h3 class="sub-heading">Триггеры: в какой момент покупают</h3>
+<ul class="guide-list">
+  <li><strong>Увидела ровесницу с результатом.</strong> Не звезду, а такую же: с детьми, из найма. «Если она смогла...» Зависть переходит в действие в течение суток.</li>
+  <li><strong>Точка «хватит»: день рождения, Новый год, выход из декрета, ссора про деньги.</strong> Календарные и жизненные пороги, когда «потом» становится невыносимым.</li>
+  <li><strong>Чужая фраза, которая попала дословно.</strong> «Я устала быть очень перспективной» в reels соберёт в директ ровно моих. Язык боли и есть триггер.</li>
+  <li><strong>Маленькая цена первого шага.</strong> После кладбища курсов большие программы пугают. Вход до 3–5 тысяч с быстрым результатом проходит фильтр недоверия.</li>
+  <li><strong>Разрешение не бросать работу.</strong> «Проверь новый путь без потери опоры» снимает главный тормоз двери 1. Никаких «сожги мосты».</li>
+</ul>
+
+<h3 class="sub-heading">Главная эмоция аудитории в 2026</h3>
+<p class="text">Усталость от давления и недоверие к обещаниям. Поэтому продаёт противоположное: <strong>приятное возбуждение и революция</strong>. Не «вставай в пять утра», а «тебе можно, и вот первый шаг на 15 минут». Энергия без надрыва, смелость без агрессии, кружево и сила одновременно. Моя эмоция и есть мой оффер, её не скопирует ни одна «наставница».</p>
+
+<!-- ============ 06 ============ -->
+<h2 class="section-heading" id="s06"><span>06</span>Чего они хотят <em>вместо</em> и точка Б</h2>
+
+<details class="fold"><summary><h3 class="sub-heading">«Вместо» по главным болям</h3><span class="fold-hint">раскрыть</span></summary><div class="fold-body">
+<div class="quote"><span class="quote-label"><span>Д1</span>Вместо «не знаю, куда себя приложить»</span>«Хочу, чтобы кто-то помог разложить весь мой опыт и сказать: вот это у тебя ценное, вот это люди купят, начни отсюда. Не тест на профориентацию, а живой взгляд со стороны».</div>
+<div class="quote"><span class="quote-label"><span>Д1</span>Вместо «нет времени и сил»</span>«Хочу путь, который влезает в мою жизнь: 15–20 минут в день с телефона. Чтобы рутину взял на себя ИИ, а от меня только то, что могу я одна: мой опыт и мой голос».</div>
+<div class="quote"><span class="quote-label"><span>Д1</span>Вместо «страшно показать»</span>«Хочу первый шаг, где нельзя опозориться: маленький, почти незаметный, но настоящий. И чтобы рядом кто-то был, когда я нажму «опубликовать»».</div>
+<div class="quote"><span class="quote-label"><span>Д2</span>Вместо «контент есть, денег нет»</span>«Хочу понять, что именно я продаю, кому и по какой цене. Чтобы блог перестал быть дорогим хобби. Одно понятное предложение вместо тридцати сторис в день».</div>
+<div class="quote"><span class="quote-label"><span>Д2</span>Вместо «назвать цену это наглость»</span>«Хочу назвать цену и не умереть. Хочу однажды написать стоимость без «если что, можно меньше». И чтобы купили».</div>
+<div class="quote"><span class="quote-label"><span>Д2</span>Вместо «тону в воронках»</span>«Хочу, чтобы мне перевели с технического на человеческий: вот путь клиентки по шагам, вот что писать, вот что настроить один раз. Без слова «лид-магнит» через каждое предложение».</div>
+</div></details>
+
+<h3 class="sub-heading">Точка Б</h3>
+<div class="quote"><span class="quote-label"><span>Д1</span>Через полгода-год</span>«Смотри, как я это вижу. Утро, я собираю детей, и у меня в телефоне не чужие сторис, а три сообщения: «хочу к вам», «можно подробнее» и перевод. У меня есть моё дело. Маленькое, но моё: я знаю, что я предлагаю, кому и за сколько. Я не уволилась, я не сожгла мосты, я проверила себя по-взрослому. И впервые за много лет я купила себе что-то со своих денег и никому не объясняла. А главное, этот вечный гул в голове «а что, если бы» наконец замолчал. Я попробовала. Оно работает».</div>
+<div class="quote"><span class="quote-label"><span>Д2</span>Через полгода-год</span>«Мой блог перестал быть пустой комнатой. У меня одно понятное предложение, цена, которую я называю спокойно, и маленькая система: людям понятно, куда писать и что покупать. Контента я делаю меньше, а денег он приносит больше, потому что у каждого поста есть работа. База у меня своя, не на милости площадки. И я больше не завидую той девочке из Дубая. Мне ок на своём месте: я глубокая, я красивая, и я, оказывается, умею продавать, не переставая быть собой».</div>
+
+<h3 class="sub-heading">Граница между желанием и обещанием</h3>
+<div class="scenario-card"><div class="scenario-card__num">МОЖНО ОБЕЩАТЬ</div>
+<div class="scenario-card__point"><span class="scenario-card__point-text">Разобранный опыт и выбранное направление. Сформулированное предложение с ценой. Первый выход к людям и первые реальные отклики рынка. Путь на 15–20 минут в день с телефона. Поддержку и разрешение.</span></div></div>
+<div class="scenario-card"><div class="scenario-card__num">ТОЛЬКО ПОКАЗЫВАТЬ НА ПРИМЕРАХ</div>
+<div class="scenario-card__point"><span class="scenario-card__point-text">Деньги: мой путь, путь учениц с их цифрами и контекстом. Без переноса «у тебя будет так же».</span></div></div>
+<div class="scenario-card"><div class="scenario-card__num">НЕ КОРМИТЬ ВООБЩЕ</div>
+<div class="scenario-card__point"><span class="scenario-card__point-text">«Доход на автомате», «брось работу», «100 тысяч за месяц», исцеление и «жизнь изменится навсегда». Это против моей этики, против роли исследователя и скоро против закона.</span></div></div>
+
+<!-- ============ 07 ============ -->
+<h2 class="section-heading" id="s07"><span>07</span>Как они решают это сами, <em>и почему становится хуже</em></h2>
+
+<details class="fold"><summary><h3 class="sub-heading">8 ложных решений с обломом</h3><span class="fold-hint">раскрыть</span></summary><div class="fold-body">
+
+<div class="scenario-card"><div class="scenario-card__num">1 · ЕЩЁ ОДИН КУРС «НАЙДИ СЕБЯ»</div>
+<div class="scenario-card__point"><span class="scenario-card__point-text"><strong>Облом.</strong> У неё уже три таких. Поиск себя без выхода к рынку это карусель: инсайты есть, жизнь та же. Мой рынок завален этими продуктами за 6–50 тысяч, и почти никто не ведёт до проверки реальностью. Проблема не «кто я», а «покажи это людям и посмотри на ответ».</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">2 · «СНАЧАЛА НАКОПЛЮ, ПОТОМ НАЧНУ»</div>
+<div class="scenario-card__point"><span class="scenario-card__point-text"><strong>Облом.</strong> Парадокс старта: ждать денег, чтобы начать зарабатывать. Первый обмен ценностью не требует бюджета: телефон, опыт и один человек, которому это нужно. Пока она копит на «нормальный старт», цена входа растёт, а вера падает.</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">3 · МОЛЧА ГОТОВИТЬСЯ ДО ИДЕАЛЬНОГО</div>
+<div class="scenario-card__point"><span class="scenario-card__point-text"><strong>Облом.</strong> Пока идея внутри, она гениальна. Два года «подготовки» это два года без единого ответа рынка. Страшна не камера, а проверка реальностью, и единственное лекарство: маленькая проверка, где провал стоит один вечер, а не репутацию.</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">4 · БОЛЬШЕ КОНТЕНТА, БОЛЬШЕ СТОРИС</div>
+<div class="scenario-card__point"><span class="scenario-card__point-text"><strong>Облом.</strong> Контент без предложения это дорогое хобби. Два года блога и тридцать тысяч дохода тому доказательство. Сначала ценность, предложение и цена, потом контент, который к ним ведёт. Не наоборот.</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">5 · СНИЗИТЬ ЦЕНУ, «ЧТОБЫ БРАЛИ»</div>
+<div class="scenario-card__point"><span class="scenario-card__point-text"><strong>Облом.</strong> Дешёвая цена не лечит непонятную ценность, зато собирает аудиторию, которая не может платить. Через год поднять цену вдвое страшнее. Цена это часть позиционирования, а не извинение.</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">6 · КУПИТЬ «НАСТАВНИЧЕСТВО ПО ЗАПУСКАМ»</div>
+<div class="scenario-card__point"><span class="scenario-card__point-text"><strong>Облом.</strong> Схема запуска на аудиторию, которой нет, и продукт, которого нет. Она получает чужой шаблон прогрева вместо своей ценности. Деньги потрачены, стыд вырос, «я не создана» закрепилось.</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">7 · УЙТИ В «ЭНЕРГИИ И ПРАКТИКИ»</div>
+<div class="scenario-card__point"><span class="scenario-card__point-text"><strong>Облом.</strong> Состояние важно, я сама про состояние. Но состояние без действия это анестезия: неделю хорошо, потом та же точка. Моя формула: разрешение → инструмент → результат. Все три, а не только первое.</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">8 · ЖДАТЬ, ПОКА ДЕТИ ПОДРАСТУТ / СТАНЕТ ПОЛЕГЧЕ</div>
+<div class="scenario-card__point"><span class="scenario-card__point-text"><strong>Облом.</strong> Легче не станет, станет позже. Путь, который требует новую жизнь, действительно невозможен. Поэтому мой путь встроен в её жизнь: 15–20 минут в день с телефона. Это не компромисс, это единственная честная механика для женщины с детьми и работой.</span></div></div>
+</div></details>
+
+<!-- ============ 08 ============ -->
+<h2 class="section-heading" id="s08"><span>08</span>Возражения: <em>что говорит</em> и что думает</h2>
+
+<div class="table-wrap">
+<table>
+  <tr><th>Говорит</th><th>Думает</th><th>Что отвечаю</th></tr>
+  <tr><td>«У меня нет времени»</td><td>«Я боюсь, что это ещё одна нагрузка, а я на пределе»</td><td>«Путь рассчитан на 15–20 минут в день с телефона. Рутину берёт ИИ, от тебя только твой опыт и голос. Если через неделю это отнимает больше, я сделала плохой продукт».</td></tr>
+  <tr><td>«Я уже пробовала, не получилось»</td><td>«Я себе не верю, у меня кладбище курсов»</td><td>«Поэтому здесь нет 40 часов теории. Короткие шаги, первый результат на первой неделе, и мерим не просмотренные уроки, а сделанное. Отстать и вернуться без стыда можно, это вшито».</td></tr>
+  <tr><td>«Я не такая яркая и смелая»</td><td>«Это для особенных, а я обычная»</td><td>«Я не прошу быть яркой. Я показываю, как выглядела я: декрет, двое детей, опора только во мне. Смелость не стартовое условие, а результат первого маленького шага».</td></tr>
+  <tr><td>«Чем ты отличаешься от наставниц по блогу»</td><td>«Сейчас опять продадут схему»</td><td>«Я не учитель, я исследователь. Я не выдаю гипотезы за истину: я проверила 18 предложений рынка, проверяю всё на себе и показываю процесс честно. И я не обучаю тому, что не прожила».</td></tr>
+  <tr><td>«Дорого»</td><td>«Не верю, что окупится» или «мне страшно тратить на себя»</td><td>«Скажи, что смущает: цена или риск? Вход стоит как две доставки пиццы, и у него есть конкретный результат первой недели. А тратить на себя можно. Это вообще главное, чему тут учат».</td></tr>
+  <tr><td>«Муж/мама не поймут»</td><td>«Мне нужно разрешение»</td><td>«Тебе не нужно ничьё разрешение на 20 минут в день со своего телефона. Покажешь не планы, а первый результат. С результатом спорить сложнее».</td></tr>
+  <tr><td>«А если у меня не получится»</td><td>«Не хочу ещё одно доказательство, что я не довожу»</td><td>«Получится узнать правду: нужен твой продукт рынку или нет. Это результат в обе стороны. Не получиться может только одно: если не показать ничего никому. Это у тебя уже было».</td></tr>
+</table>
+</div>
+<!-- ============ 09 ============ -->
+<h2 class="section-heading" id="s09"><span>09</span>Моё место на рынке <em>и лучшие решения</em> по болям</h2>
+
+<h3 class="sub-heading">Что показало моё исследование 18 предложений</h3>
+<ul class="guide-list">
+  <li><strong>Переполнено:</strong> «проявись и поверь в себя» (записи за 6–10 тысяч), «найди предназначение» (14–50 тысяч), «упакуем бренд» (30–400 тысяч), академические программы про личный бренд (40–150 тысяч).</li>
+  <li><strong>Пусто:</strong> доведение женщины от имеющегося опыта до выбранного направления, предложения и первых реальных откликов рынка, с учётом денег, времени, детей и ответственности. Почти никто не продаёт «проверку реальностью», все продают «состояние» или «упаковку».</li>
+  <li><strong>Моё право на эту нишу:</strong> прожитый путь (декрет, развод, своё дело, ошибки и потери, возвращение к себе), агентство личного брендинга, воронки, ИИ как «переводчик», и роль исследователя, которая снимает главный страх аудитории: что ей опять продадут позу гуру.</li>
+</ul>
+
+<h3 class="sub-heading">Лучшие решения: что бы я посоветовала подруге</h3>
+<p class="text">По главным болям. Там, где моё, говорю прямо. Там, где лучше без меня, тоже прямо, потому что подруге не впаривают.</p>
+
+<div class="scenario-card"><div class="scenario-card__num">«МОГУ БОЛЬШЕ, НЕ ЗНАЮ КУДА»</div>
+<div class="scenario-card__point"><span class="scenario-card__point-text"><strong>Решение.</strong> Не искать «предназначение», а провести инвентаризацию: выписать весь опыт, навыки и темы, на которые её уже спрашивают, и выбрать одно направление по трём фильтрам: умею, горит, люди за это платят. Это работа на вечер со структурой, а не на год с поиском себя. <strong>Моё:</strong> мини-распаковка делает ровно это, и это мой вход в линейку.</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">«СТРАШНО ПОКАЗАТЬ И УСЛЫШАТЬ ТИШИНУ»</div>
+<div class="scenario-card__point"><span class="scenario-card__point-text"><strong>Решение.</strong> Уменьшить ставку: не «запуск», а одно предложение десяти живым людям. Тишина от десяти человек это данные, а не приговор. <strong>Моё:</strong> цикл исследователя, шаг «проверить действием». Плюс разрешение: первый блин публикуется в маленьком кругу, где падать не больно.</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">«КОНТЕНТ ЕСТЬ, ДЕНЕГ НЕТ»</div>
+<div class="scenario-card__point"><span class="scenario-card__point-text"><strong>Решение.</strong> Остановить производство контента на неделю и собрать предложение: что, кому, результат, цена, как купить. Потом каждый пост обязан вести к нему. <strong>Моё:</strong> связка «ценность → продукт → оффер → продажи», моя твёрдая экспертиза воронок, переведённая на человеческий.</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">«НАЗВАТЬ ЦЕНУ ЭТО НАГЛОСТЬ»</div>
+<div class="scenario-card__point"><span class="scenario-card__point-text"><strong>Решение.</strong> Цена считается от ценности изменения для клиентки, а не от самооценки. Написать цену один раз, без «если что, можно меньше», и выдержать паузу. <strong>Моё:</strong> это и состояние (разрешение брать), и техника (обоснование цены). Я закрываю обе половины, большинство конкуренток только одну.</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">«НЕТ ВРЕМЕНИ, ДЕТИ, РАБОТА»</div>
+<div class="scenario-card__point"><span class="scenario-card__point-text"><strong>Решение.</strong> Строить систему под её жизнь: 15–20 минут в день, рутина на ИИ, батчи в выходной. Если метод требует «новую жизнь», это плохой метод. <strong>Моё:</strong> я сама живу так: работа, двое детей, всё с телефона. Мой кейс и есть доказательство.</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">«КЛАДБИЩЕ КУРСОВ»</div>
+<div class="scenario-card__point"><span class="scenario-card__point-text"><strong>Решение.</strong> Не покупать ничего длиннее трёх недель, пока не доведено до конца что-то короткое. Мерить применением, а не просмотренным. <strong>Моё:</strong> короткие модули, быстрый первый результат, возврат без стыда. Это зашито в продукт ниже как принцип, а не как лозунг.</span></div></div>
+
+<!-- ============ 10 ============ -->
+<h2 class="section-heading" id="s10"><span>10</span><em>Позиционирование</em></h2>
+
+<p class="text">База уже зафиксирована в стратегии v20 и брендбуке: LACELIKE бренд, «Революция» проект, «Революционерка в кружеве» архетип, роль исследователя, имя профиля «Олеся | исследую женскую проявленность». Здесь формулы под шапку, пост-закреп и живой разговор. Критерий: моя женщина читает и думает «это про меня, мне нужен этот человек».</p>
+
+<h3 class="sub-heading">Общее, под обе двери</h3>
+<div class="prompt-box">
+  <div class="prompt-box__title">ИЗ «Я УСТАЛА БЫТЬ ПЕРСПЕКТИВНОЙ» В АВТОРСТВО СВОЕЙ ЖИЗНИ</div>
+  <div class="prompt-box__subtitle">заголовок + подзаголовок + три тире</div>
+  <div class="prompt-box__text">Помогаю женщине превратить опыт, который у неё уже есть, в выбранное направление, предложение и первые свои деньги<br><br>— без «брось работу»: проверяем новый путь, не теряя опоры<br>— 15–20 минут в день с телефона, рутину берёт ИИ<br>— я исследователь, не гуру: проверяю всё на себе и показываю честно</div>
+</div>
+<div class="prompt-box">
+  <div class="prompt-box__title">Шапка профиля</div>
+  <div class="prompt-box__subtitle">до 150 знаков</div>
+  <div class="prompt-box__text">Исследую женскую проявленность. Помогаю превратить твой опыт в своё дело и первые свои деньги. Без надрыва: 15 минут в день. Начни с анкеты ↓</div>
+</div>
+<div class="prompt-box">
+  <div class="prompt-box__title">Вслух, одной фразой</div>
+  <div class="prompt-box__subtitle">когда спрашивают «чем занимаешься»</div>
+  <div class="prompt-box__text">Я исследую, как женщине перестать быть «очень перспективной» и начать жить свою жизнь: помогаю разобрать её опыт, выбрать направление и получить первые свои деньги, не бросая работу и детей. Сама прошла этот путь из декрета и проверяю каждый шаг на себе.</div>
+</div>
+
+<h3 class="sub-heading">Акцент для двери 2</h3>
+<div class="prompt-box">
+  <div class="prompt-box__title">БЛОГ, КОТОРЫЙ ПЕРЕСТАЁТ БЫТЬ ДОРОГИМ ХОББИ</div>
+  <div class="prompt-box__subtitle">вариант для экспертов и блогерок</div>
+  <div class="prompt-box__text">Распаковка, позиционирование, предложение и цена, которую не стыдно назвать. Воронки, переведённые с технического на человеческий. Контента меньше, смысла и денег больше.</div>
+</div>
+
+<h3 class="sub-heading">Что проверить до того, как ставить в шапку</h3>
+<ul class="guide-list">
+  <li>Фраза «устала быть очень перспективной» против «превратить опыт в своё дело»: что сильнее отзывается, покажет анкета и реакции на два поста.</li>
+  <li>Слово «исследую» в шапке: тёплым заходит, холодным может быть непонятно. Проверить на 5 людях, которые меня не знают.</li>
+  <li>«Первые свои деньги» это обещание процесса, не суммы. Юридически чисто, но сверить ощущение: не читается ли как гарантия.</li>
+</ul>
+
+<!-- ============ 11 ============ -->
+<h2 class="section-heading" id="s11"><span>11</span>Продукт по методологии: <em>топ-боли → уроки → бонусы → тарифы</em></h2>
+
+<p class="text">Собираю по методологии «Продукт, который хотят купить»: первые боли из таблицы → идея → уроки с названиями, которые хочется купить отдельно → описания с болью → 10 бонусов → три тарифа, где второй чуть дороже первого и заметно жирнее. Чек до 10–15 тысяч, продаётся без созвонов, личное участие минимально. Это основной продукт после мини-распаковки, для двери 1 и начала двери 2. Решение из моей же стратегии «первым делаем мини-распаковку» остаётся в силе: она вход и фильтр.</p>
+
+<h3 class="sub-heading">Шаг 0. Боли и идея</h3>
+<div class="table-wrap">
+<table>
+  <tr><th>Боль</th><th>Место</th><th>Решение через мою экспертизу</th></tr>
+  <tr><td>Могу больше, не знаю, куда себя приложить</td><td>1</td><td>Инвентаризация опыта → выбор направления по трём фильтрам</td></tr>
+  <tr><td>Страшно показать и услышать тишину</td><td>2</td><td>Маленькая проверка на 10 людях вместо «запуска»</td></tr>
+  <tr><td>Контент есть / опыт есть, денег нет</td><td>3</td><td>Предложение с ценой и путь клиентки, переведённый на человеческий</td></tr>
+  <tr><td>Нет времени: дети, работа</td><td>4</td><td>Система 15–20 минут в день, рутина на ИИ</td></tr>
+  <tr><td>Кладбище курсов, себе не верю</td><td>5</td><td>Короткие шаги, результат первой недели, мерим применением</td></tr>
+</table>
+</div>
+<div class="prompt-box">
+  <div class="prompt-box__title">ИДЕЯ ПРОДУКТА</div>
+  <div class="prompt-box__subtitle">как клиентка мыслит задачей</div>
+  <div class="prompt-box__text">За 3 недели превратить опыт, который у тебя уже есть, в выбранное направление, готовое предложение и первую проверку на живых людях. С телефона, 15–20 минут в день, не увольняясь и не пропадая из семьи.</div>
+</div>
+
+<h3 class="sub-heading">Шаг 1. Название</h3>
+<div class="prompt-box">
+  <div class="prompt-box__title">«РЕВОЛЮЦИЯ: ПЕРВЫЙ ШАГ»</div>
+  <div class="prompt-box__subtitle">рабочее название + подзаголовок</div>
+  <div class="prompt-box__text">Из твоего опыта — в своё дело за 3 недели: направление, предложение, первые отклики живых людей</div>
+</div>
+<ul class="guide-list">
+  <li>Запасное 1: <strong>«Своё дело из того, что уже умеешь»</strong>. Максимально понятное, можно как подзаголовок.</li>
+  <li>Запасное 2: <strong>«Хватит быть перспективной»</strong>. Самое дерзкое и самое моё, но требует второй строки с расшифровкой. Проверить реакцию.</li>
+  <li>Не брать: «Алхимия потенциала», «Путь к себе 2.0», «Женская распаковка PRO». Красиво и непонятно, что получу.</li>
+</ul>
+
+<h3 class="sub-heading">Шаг 2. Уроки</h3>
+<p class="text">Семь уроков по 10–20 минут, пошаговый план. Каждый: что сделать, зачем, как понять, что сделано, что дальше. Каждый сверен с таблицей болей.</p>
+
+<div class="scenario-card"><div class="scenario-card__num">УРОК 1 · ВЕСЬ ТВОЙ ОПЫТ НА ОДНОМ ЛИСТЕ ЗА ВЕЧЕР</div>
+<div class="scenario-card__point"><span class="scenario-card__point-text">Инвентаризация: профессия, курсы, навыки, темы, на которые тебя уже спрашивают, и то, что ты делаешь «между делом». Промпты собирают это в карту ценности. К концу вечера ты впервые видишь свой опыт не как свалку, а как актив, из которого выбирают. Закрывает «я ничего особенного не умею».</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">УРОК 2 · ОДНО НАПРАВЛЕНИЕ ВМЕСТО ПЯТИ ИДЕЙ</div>
+<div class="scenario-card__point"><span class="scenario-card__point-text">Три фильтра: умею, горит, люди платят. Проверка по моему исследованию рынка: где уже есть спрос и деньги, а где только красивые мечты. Выбираешь одно направление на ближайшие три месяца, остальные идеи не умирают, а встают в очередь. Закрывает «не знаю, куда себя приложить» и вечный перебор.</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">УРОК 3 · ПРЕДЛОЖЕНИЕ, ЗА КОТОРОЕ ПЛАТЯТ: ЧТО, КОМУ, РЕЗУЛЬТАТ, ЦЕНА</div>
+<div class="scenario-card__point"><span class="scenario-card__point-text">Собираем первый оффер из карты ценности: какое изменение ты продаёшь, какой женщине, что она получит и сколько это стоит. Цена считается от ценности, и называется без «если что, можно меньше». Закрывает «за что мне платить» и «назвать цену это наглость».</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">УРОК 4 · ПРОВЕРКА НА ДЕСЯТИ ЖИВЫХ ЛЮДЯХ</div>
+<div class="scenario-card__point"><span class="scenario-card__point-text">Самый важный урок. Список из 10 человек, которым твоё предложение может быть нужно, готовые сообщения без «впаривания» и правило чтения ответов: что считается «да», что «данные», что «поменяй формулировку». Тишина перестаёт быть приговором и становится информацией. Закрывает «страшно показать» и страх публичного провала: проверка проходит тихо.</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">УРОК 5 · ПЕРВЫЙ ОБМЕН ЦЕННОСТЬЮ</div>
+<div class="scenario-card__point"><span class="scenario-card__point-text">Как провести первую работу: консультацию, разбор, услугу или мини-формат. Как взять оплату, что сказать, если просят скидку, и как забрать отзыв, который станет твоим первым кейсом. Закрывает «у меня никогда не купят» самым честным способом: покупкой.</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">УРОК 6 · 15 МИНУТ В ДЕНЬ: СИСТЕМА, КОТОРАЯ НЕ СЪЕСТ ТВОЮ ЖИЗНЬ</div>
+<div class="scenario-card__point"><span class="scenario-card__point-text">Неделя, которая повторяется: что делать в свои 15–20 минут, что отдать ИИ (черновики, расшифровки, структуру), что делать батчем в выходной. Без кольцевой лампы в детской и постов в полночь. Закрывает «нет времени» и «я не технарь»: переводчик с технического прилагается.</span></div></div>
+
+<div class="scenario-card"><div class="scenario-card__num">УРОК 7 · ЧТО ГОВОРИТЬ ЛЮДЯМ: ТВОЙ ГОЛОС И ТВОЯ ИСТОРИЯ</div>
+<div class="scenario-card__point"><span class="scenario-card__point-text">Минимальный публичный контур: пост-знакомство, история, предложение. Для тех, кто готов, с лицом; для остальных честный разбор, что работает без лица, а что нет, из моего собственного faceless-исследования. Закрывает «боюсь камеры» без насилия: сцена не обязательна, видимость обязательна.</span></div></div>
+
+<h3 class="sub-heading">Шаг 3. Бонусы</h3>
+<ul class="guide-list">
+  <li><strong>1. Промпты инвентаризации.</strong> Та самая связка промптов из урока 1, вынесенная отдельно: нейросеть собирает твою карту ценности за вечер. Побочное явление продукта.</li>
+  <li><strong>2. Карта рынка: 18 предложений с ценами.</strong> Моё исследование в удобном виде: что уже продают, за сколько, где пусто. Экономит месяц гугления. Побочное явление.</li>
+  <li><strong>3. 10 сообщений для проверки без «впаривания».</strong> Готовые тексты урока 4 с местами для своего. Закрывает «не знаю, как предложить».</li>
+  <li><strong>4. Калькулятор первой цены.</strong> Таблица: ценность изменения → вилка цены → фраза, которой её называешь. Закрывает «продаю себя дёшево».</li>
+  <li><strong>5. «Разреши»: мой гайд по состоянию.</strong> Уже написан. Для дней, когда накрывает «кто я такая». Закрывает откаты.</li>
+  <li><strong>6. Разбор одной участницы в записи.</strong> Как я прохожу путь уроков 1–4 на живом примере. Закрывает «у меня особый случай».</li>
+  <li><strong>7. Чек-лист «возврат без стыда».</strong> Что делать, если отстала: точка входа обратно за 20 минут. Против кладбища курсов, прямо по больному.</li>
+  <li><strong>8. Банк формулировок из анкеты.</strong> Слова, которыми мои подписчицы описывают свои боли, для шапки, постов и офферов. Пополняется. Побочное явление анкеты.</li>
+  <li><strong>9. Личный мини-разбор за кейс.</strong> Прошла путь, прислала результат в формате «было → сделала → получила», получаешь 15 минут разбора лично со мной. Так собираются кейсы потока.</li>
+  <li><strong>10. Обновления на год.</strong> Рынок и инструменты меняются, материалы обновляются, у тебя всегда свежая версия.</li>
+</ul>
+
+<h3 class="sub-heading">Шаг 4. Тарифы</h3>
+<div class="table-wrap">
+<table>
+  <tr><th></th><th>Сама</th><th>С поддержкой</th><th>Рядом со мной</th></tr>
+  <tr><td>Уроки</td><td>1–7</td><td>1–7</td><td>1–7</td></tr>
+  <tr><td>Обратная связь</td><td>Чат участниц, FAQ</td><td>Чат + ежемесячный эфир с ответами + проверка домашек по чек-листам</td><td>Всё из второго + личная мини-распаковка 60 минут и разбор твоего предложения лично</td></tr>
+  <tr><td>Доступ</td><td>1 месяц</td><td>6 месяцев</td><td>12 месяцев</td></tr>
+  <tr><td>Бонусы</td><td>1, 5</td><td>1–8, 10</td><td>все 10, разбор без условия кейса</td></tr>
+  <tr><td>Цена <em style="color:#7B5A43">[гипотеза, проверить анкетой]</em></td><td>2.990 ₽</td><td>4.990 ₽</td><td>9.990 ₽</td></tr>
+  <tr><td>Что дальше</td><td>Апгрейд до второго за разницу</td><td>Личная работа / брендбук</td><td>Личное сопровождение</td></tr>
+</table>
+</div>
+<ul class="guide-list">
+  <li><strong>Логика сетки.</strong> Второй тариф на 2.000 дороже первого, но даёт полгода доступа, поддержку и восемь бонусов: выбор очевиден, ориентир продаж на него. Третий вдвое дороже второго и включает час со мной: это вход в личную работу и брендбук под заказ, который я уже делаю для клиенток.</li>
+  <li><strong>Без созвонов в первых двух тарифах:</strong> записи, чат, эфир раз в месяц. Моё время только в третьем. Обратная связь в чате закрывает и юридическую сторону, и «мне нужна поддержка».</li>
+  <li><strong>Доведение до действия:</strong> каждый урок заканчивается одним действием с критерием «сделано». Быстрая победа: карта ценности в первый же вечер. Стоп-точка с рефлексией после урока 4, бонус 9 за кейс.</li>
+  <li><strong>Продавать до полной записи:</strong> записываю уроки 1–2, открываю предзапись для своих по цене второго тарифа минус 1.000 на первые 20 мест, старт через две недели. Мини-распаковка остаётся входом перед продуктом, как решено в стратегии.</li>
+</ul>
+
+<!-- ============ 12 ============ -->
+<h2 class="section-heading" id="s12"><span>12</span>Что проверить до записи <em>и как</em></h2>
+
+<div class="table-wrap">
+<table>
+  <tr><th>Гипотеза</th><th>Как проверяю</th><th>Что считаю</th><th>Срок</th></tr>
+  <tr><td>Главная боль: «могу больше, не знаю куда» против «контент есть, денег нет»</td><td>Анкета (уже запущена) + 5 разговоров</td><td>Какая дверь преобладает среди подписчиц</td><td>1 неделя</td></tr>
+  <tr><td>Название: «Революция: первый шаг» против «Своё дело из того, что уже умеешь»</td><td>Опрос в сторис/канале из 2–3 вариантов</td><td>Голоса + «про меня» в директ</td><td>3 дня</td></tr>
+  <tr><td>Цена и готовность платить</td><td>Вопрос в анкете «за какой результат заплатишь первым и сколько»</td><td>Вилка ответов, доля «куплю до 5 тысяч»</td><td>1 неделя</td></tr>
+  <tr><td>Мини-распаковка конвертирует в продукт</td><td>Первые 10 мини-распаковок</td><td>Сколько пошли дальше</td><td>3 недели</td></tr>
+  <tr><td>Предзапись набирается</td><td>20 мест для своих, старт через 2 недели</td><td>Оплаты, не «интересно»</td><td>2 недели</td></tr>
+</table>
+</div>
+<p class="text">Критерий из моей же стратегии: реальные сигналы это заявки, оплаты и выполненные действия, а не лайки. Если предзапись не набирается по моей тёплой базе, проблема в оффере или сегменте, возвращаюсь в разделы 10–11, а не записываю уроки «на всякий случай».</p>
+
+<!-- ============ 13 ============ -->
+<h2 class="section-heading" id="s13"><span>13</span><em>Источники</em></h2>
+<p class="text">Мои: исследование рынка LACELIKE от 07.10.2026 (18 предложений, 29 источников), внутренняя стратегия v20 от 11.10.2026, брендбук v16, распаковка, карта болей аудитории, манифест, анкета v2. Факты о рынке 2026 (запрет рекламы, Telegram, белые списки, доходы блогеров, регулирование инфобиза) сверены с анализом аудитории maysoulme от 10.10.2026 и его источниками. Методология продукта: урок «Продукт, который хотят купить» (конспект и транскрипт, октябрь 2026).</p>
+
+<div class="final">
+  <p class="final__lead">главный вывод</p>
+  <h2 class="final__title">Рынок продаёт «найди себя». <span class="hand">Я продаю «проверь себя»</span></h2>
+  <p class="final__text">Моя женщина уже всё про себя знает, у неё кладбище курсов и разрыв между потенциалом и реальностью. Ей не нужно ещё одно «поверь в себя». Ей нужны направление из её же опыта, предложение с ценой и первая проверка на живых людях, встроенная в жизнь с детьми и работой. Это пустая ниша по моему же исследованию, это мой прожитый путь, и это продукт, который можно проверить предзаписью за две недели.</p>
+</div>
+
+</div>
+
+<footer class="footer">
+  © 2026 · Олеся · LACELIKE · Личная работа с maysoulme. Материалы не для передачи третьим лицам.
+  <p class="tiny">Внутренний рабочий документ. Гипотезы до результатов анкеты и первых оплат.</p>
+</footer>
+
+<script>
+document.querySelectorAll('table').forEach(function(t){
+  var rows=t.querySelectorAll('tr'); if(!rows.length) return;
+  var head=rows[0]; if(!head.querySelector('th')) return;
+  head.classList.add('thead-row');
+  var labels=Array.prototype.map.call(head.children,function(c){return c.textContent.trim();});
+  for(var i=1;i<rows.length;i++){Array.prototype.forEach.call(rows[i].children,function(td,j){ if(labels[j]) td.setAttribute('data-label',labels[j]); });}
+});
+</script>
+</body>
+</html>
